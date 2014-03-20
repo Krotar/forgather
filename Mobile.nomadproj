@@ -27,6 +27,18 @@
     <Content Include="cordova.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="icons\android\icon-hdpi.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="icons\android\icon-ldpi.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="icons\android\icon-mdpi.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="icons\android\icon-xhdpi.png">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="images\buttons\category_contact.png">
       <SubType>Content</SubType>
     </Content>
@@ -380,6 +392,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="icons\" />
+    <Folder Include="icons\android\" />
     <Folder Include="images" />
     <Folder Include="images\buttons" />
     <Folder Include="images\profiles" />
