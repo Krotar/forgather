@@ -10,6 +10,9 @@
     <Name>Mobile</Name>
     <RootNamespace>Mobile</RootNamespace>
     <ProjectGuid>{3c9bcbe8-4980-4580-80bf-46e5b678fc02}</ProjectGuid>
+    <ProjectName>Forgather</ProjectName>
+    <BundleID>com.example.mobile</BundleID>
+    <Description />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>

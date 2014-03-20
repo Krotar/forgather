@@ -82,6 +82,17 @@
                 dataType: 'json',
                 contentType: "application/json"
             });
+
+            function alertDismissed() {
+                // do something
+            }
+
+            navigator.notification.alert(
+                'You are the winner!',  // message
+                alertDismissed,         // callback
+                'Game Over',            // title
+                'Done'                  // buttonName
+            )
         }
 
         function register() {

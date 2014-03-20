@@ -28,4 +28,7 @@
   <gap:plugin name="org.apache.cordova.dialogs" />
   <gap:plugin name="org.apache.cordova.splashscreen" />
   <gap:plugin name="org.apache.cordova.vibration" />
+  <feature name="Notification">
+    <param name="android-package" value="org.apache.cordova.Notification" />
+  </feature>
 </widget>
