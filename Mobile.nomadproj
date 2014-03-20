@@ -1,0 +1,401 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <CompiledOutputPath>distrib\</CompiledOutputPath>
+    <OutputPath>bin\$(Configuration)</OutputPath>
+    <CordovaVersion>3.0</CordovaVersion>
+    <BuildCloudVersion>2.0</BuildCloudVersion>
+    <Name>Mobile</Name>
+    <RootNamespace>Mobile</RootNamespace>
+    <ProjectGuid>{3c9bcbe8-4980-4580-80bf-46e5b678fc02}</ProjectGuid>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="config.xml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="home.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="cordova.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="images\buttons\category_contact.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="images\buttons\category_contact_one.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="images\buttons\category_phone.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="images\buttons\category_phone_home.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="images\buttons\category_phone_mobile.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="images\choosephoto.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="images\logo.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="images\profiles\nick.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="index.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="scripts\jquery-1.10.2.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="scripts\jquery.mobile-1.4.2.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\Forgather.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\ajax-loader.gif">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\action-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\action-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\alert-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\alert-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\arrow-d-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\arrow-d-l-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\arrow-d-l-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\arrow-d-r-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\arrow-d-r-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\arrow-d-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\arrow-l-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\arrow-l-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\arrow-r-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\arrow-r-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\arrow-u-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\arrow-u-l-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\arrow-u-l-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\arrow-u-r-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\arrow-u-r-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\arrow-u-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\audio-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\audio-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\back-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\back-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\bars-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\bars-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\bullets-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\bullets-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\calendar-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\calendar-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\camera-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\camera-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\carat-d-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\carat-d-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\carat-l-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\carat-l-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\carat-r-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\carat-r-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\carat-u-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\carat-u-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\check-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\check-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\clock-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\clock-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\cloud-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\cloud-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\comment-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\comment-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\delete-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\delete-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\edit-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\edit-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\eye-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\eye-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\forbidden-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\forbidden-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\forward-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\forward-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\gear-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\gear-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\grid-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\grid-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\heart-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\heart-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\home-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\home-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\info-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\info-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\location-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\location-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\lock-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\lock-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\mail-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\mail-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\minus-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\minus-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\navigation-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\navigation-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\phone-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\phone-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\plus-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\plus-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\power-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\power-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\recycle-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\recycle-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\refresh-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\refresh-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\search-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\search-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\shop-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\shop-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\star-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\star-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\tag-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\tag-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\user-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\user-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\video-black.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\images\icons-png\video-white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\jquery.mobile.icons.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\jquery.mobile.structure-1.4.2.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\reset.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="themes\style.css">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="images" />
+    <Folder Include="images\buttons" />
+    <Folder Include="images\profiles" />
+    <Folder Include="themes" />
+    <Folder Include="scripts" />
+    <Folder Include="themes\images" />
+    <Folder Include="themes\images\icons-png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.Common.targets" />
+  <Target Name="ResolveReferences" />
+  <Target Name="CoreCompile" />
+  <Target Name="CreateManifestResourceNames" />
+  <Target Name="CopyFilesToOutputDirectory">
+    <ItemGroup>
+      <AbsoluteContentDestinations Include="$(OutputPath)%(Content.Identity)" />
+    </ItemGroup>
+    <Copy SourceFiles="@(Content)" DestinationFiles="@(AbsoluteContentDestinations)" />
+  </Target>
+</Project>

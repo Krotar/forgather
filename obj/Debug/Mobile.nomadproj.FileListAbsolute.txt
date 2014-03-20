@@ -1,0 +1,2 @@
+D:\Documents\Dropbox\Werk\Mobile\Mobile\obj\Debug\Mobile.nomadprojResolveAssemblyReference.cache
+D:\Documents\Dropbox\Werk\Forgather\Mobile\Mobile\obj\Debug\Mobile.nomadprojResolveAssemblyReference.cache

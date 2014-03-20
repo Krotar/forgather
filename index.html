@@ -1,0 +1,117 @@
+﻿<html class="ui-mobile">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Multi-page template</title>
+    <link rel="stylesheet" href="./themes/reset.css" />
+    <link rel="stylesheet" href="./themes/style.css" />
+    <link rel="stylesheet" href="./themes/Forgather.css" />
+    <link rel="stylesheet" href="./themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="./themes/jquery.mobile.structure-1.4.2.min.css" />
+    <script src="./scripts/jquery-1.10.2.min.js"></script>
+    <script src="./scripts/jquery.mobile-1.4.2.min.js"></script>
+</head>
+
+
+<body class="ui-mobile-viewport ui-overlay-c">
+
+    <div data-role="page" id="login" data-theme="a">
+        <div data-role="content" class="ui-content" role="main">
+            <img src="images/logo.png" id="logo" />
+            <input id="loginEmail" type="text" alt="Email" />
+            <input id="loginPassword" type="password" alt="Password" />
+            <input type="button" value="Log In" onclick="login()" />
+            <a href="#register" data-direction="reverse" class="info">Sign up for Forgather</a>
+        </div>
+    </div>
+
+    <div data-role="page" id="register" data-theme="a">
+        <div data-role="content" class="ui-content" role="main">
+            <img src="images/logo.png" id="logo" />
+            <input id="registerEmail" type="text" alt="Email" />
+            <input id="registerPassword" type="password" alt="Password" />
+            <input id="registerPasswordTwo" type="password" alt="Password" />
+            <input type="button" value="Create account" onclick="register()" />
+            <a href="#login" data-direction="reverse" class="info">Already got a Forgather account?</a>
+        </div>
+    </div>
+
+    <script>
+        //var url = "http://localhost:57320/";
+        var url = "http://forgather.azurewebsites.net/";
+
+        $(document).ready(function () {
+            // set all input.text default value according to alt attribute
+            $("input:text, input:password").each(function () {
+                $(this).val($(this).attr("alt"));
+            });
+
+            // clear input.text on focus, if still in default
+            $("input:text, input:password").focus(function () {
+                if ($(this).val() == $(this).attr("alt")) {
+                    $(this).val("");
+                }
+            });
+
+            // if field is empty afterward, add text again
+            $("input:text, input:password").blur(function () {
+                if ($(this).val() == "") {
+                    $(this).val($(this).attr("alt"));
+                }
+            });
+        });
+
+        function login() {
+            var email = $("#loginEmail").val();
+            var password = $("#loginPassword").val();
+
+            var user = { userID: 0, userName: email, password: password, timestamp: null };
+
+            $.ajax({
+                url: url + 'api/user/login',
+                type: 'POST',
+                async: false,
+                contentType: 'application/json',
+                data: JSON.stringify(user),
+                success: function (data) {
+                    alert("Succesfull login.");
+                    window.localStorage.setItem("userID", data.userID);
+                    window.location.href = "./home.html#home";
+                },
+                error: function (e) {
+                    alert("Wrong credentials.");
+                },
+                dataType: 'json',
+                contentType: "application/json"
+            });
+        }
+
+        function register() {
+            var email = $("#registerEmail").val();
+            var password = $("#registerPassword").val();
+            var passwordTwo = $("#registerPasswordTwo").val();
+
+            if (password == passwordTwo) {
+                var user = { userID: 0, userName: email, password: password, timestamp: null };
+
+                $.ajax({
+                    url: url + 'api/user/register',
+                    type: 'POST',
+                    async: false,
+                    contentType: 'application/json',
+                    data: JSON.stringify(user),
+                    success: function (data) {
+                        alert("Succesfull registration")
+                    },
+                    error: function (e) {
+                        alert("That email has already registered");
+                    },
+                    dataType: 'json',
+                    contentType: "application/json"
+                });
+            } else {
+                alert("Passwords do not match");
+            }
+        }
+    </script>
+</body>
+</html>

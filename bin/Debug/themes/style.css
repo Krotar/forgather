@@ -1,0 +1,89 @@
+﻿ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    margin-left: 15px;
+}
+
+    ul li {
+        height: 40px;
+    }
+
+.left {
+    float: left;
+}
+
+.clear-fix {
+    clear: both;
+}
+
+#login {
+}
+
+    #login .ui-content, #register .ui-content {
+        text-align: center;
+    }
+
+    #login #logo, #register #logo {
+        margin: 10%;
+        height: 120px;
+        width: 120px;
+    }
+
+    #login .info, #register .info {
+        display: block;
+        margin-top: 10%;
+    }
+
+#home {
+}
+
+    #home h1 #logo {
+        height: 35px;
+        width: 35px;
+    }
+
+    #home .ui-content {
+        background-color: #ffffff;
+        margin: 10px;
+        padding:10px;
+    }
+
+        #home .ui-content #section {
+            border-bottom: 2px solid #e5e5e5;
+        }
+
+            #home .ui-content #section > .left {
+                margin-top: 15px;
+            }
+
+                #home .ui-content #section .left img {
+                    height: 25px;
+                    width: 25px;
+                }
+
+                #home .ui-content #section .left span {
+                    margin-top: 4px;
+                    margin-left: 8px;
+                    font-size:14px;
+                }
+
+            #home .ui-content #section p {
+                display: block;
+                margin: 0px;
+                padding: 0px;
+            }
+
+            #home .ui-content #section #profile {
+                text-align: center;
+                margin-bottom: 15px;
+            }
+
+                #home .ui-content #section #profile img {
+                    height: 100px;
+                    width: 100px;
+                }
+
+                #home .ui-content #section #profile p {
+                    margin-top: 20px;
+                }

@@ -1,0 +1,68 @@
+﻿<html class="ui-mobile">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Multi-page template</title>
+    <link rel="stylesheet" href="./themes/style.css" />
+    <link rel="stylesheet" href="./themes/Forgather.css" />
+    <link rel="stylesheet" href="./themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="./themes/jquery.mobile.structure-1.4.2.min.css" />
+    <script src="./scripts/jquery-1.10.2.min.js"></script>
+    <script src="./scripts/jquery.mobile-1.4.2.min.js"></script>
+    <style type="text/css"></style>
+</head>
+
+
+<body class="ui-mobile-viewport ui-overlay-c">
+
+    <div data-role="page" id="home" data-theme="b">
+        <div data-role="header">
+            <h1><img src="images/logo.png" id="logo" /></h1>
+        </div>
+
+        <div data-role="content" class="ui-content" role="main">
+            <div id="section">
+                <div id="profile">
+                    <img src="images/profiles/nick.png" />
+                    <p>Nick Van Der Meulen</p>
+                </div>
+
+            </div>
+            <div id="section">
+                <p class="left">
+                    <img src="images/buttons/category_phone.png" />
+                </p>
+                <ul class="left">
+                    <li>
+                        <img src="images/buttons/category_phone_home.png" class="left" /><span class="left">+31 756 31 27 33</span>
+                    </li>
+                    <li>
+                        <img src="images/buttons/category_phone_mobile.png" class="left" /><span class="left">+31 654 61 70 68</span>
+                    </li>
+                </ul>
+                <div class="clear-fix"></div>
+            </div>
+            <div id="section">
+                <p class="left">
+                    <img src="images/buttons/category_contact.png" />
+                </p>
+                <ul class="left">
+                    <li>
+                        <img src="images/buttons/category_contact_one.png" class="left" /><span class="left">nick.van.der.meulen@hva.nl</span>
+                    </li>
+                    <li>
+                        <img src="images/buttons/category_contact_one.png" class="left" /><span class="left">nick.van.der.m@gmail.com</span>
+                    </li>
+                </ul>
+                <div class="clear-fix"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var value = window.localStorage.getItem("mdwID");
+        alert(value);
+    </script>
+</body>
+</html>
