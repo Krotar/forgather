@@ -10,9 +10,6 @@
   <author email="nicolanauwynck@hotmail.com">nicolanauwynck@hotmail.com</author>
   <access origin="*" />
   <preference name="phonegap-version" value="3.0.0" />
-  <feature name="Notification">
-    <param name="android-package" value="org.apache.cordova.Notification" />
-  </feature>
   <gap:plugin name="org.apache.cordova.battery-status" />
   <gap:plugin name="org.apache.cordova.camera" />
   <gap:plugin name="org.apache.cordova.media-capture" />

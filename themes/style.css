@@ -26,8 +26,8 @@
 
     #login #logo, #register #logo {
         margin: 10%;
-        height: 120px;
-        width: 120px;
+        height: 100px;
+        width: 101px;
     }
 
     #login .info, #register .info {
@@ -39,7 +39,7 @@
 }
 
     #home h1 #logo {
-        height: 35px;
+        height: 29px;
         width: 35px;
     }
 

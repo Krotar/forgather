@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <widget id="com.example.mobile" version="1.0.0" xmlns:gap="http://phonegap.com/ns/1.0" xmlns="http://www.w3.org/ns/widgets">
-  <name>Mobile</name>
+  <name>Forgather</name>
   <description>
   </description>
   <icon src="/icons/android/icon-hdpi.png" gap:density="hdpi" gap:platform="android" />
@@ -28,7 +28,4 @@
   <gap:plugin name="org.apache.cordova.dialogs" />
   <gap:plugin name="org.apache.cordova.splashscreen" />
   <gap:plugin name="org.apache.cordova.vibration" />
-  <feature name="Notification">
-    <param name="android-package" value="org.apache.cordova.Notification" />
-  </feature>
 </widget>
