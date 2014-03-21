@@ -14,7 +14,7 @@
     <BundleID>com.example.mobile</BundleID>
     <Description />
     <HostingMethod>EmbeddedWebServer</HostingMethod>
-    <PreviewMethod>SystemDefaultBrowser</PreviewMethod>
+    <PreviewMethod>NomadSimulator</PreviewMethod>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,6 +44,9 @@
     <Content Include="icons\android\icon-xhdpi.png">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="icons\android\icon-xxhdpi.png">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="images\buttons\category_contact.png">
       <SubType>Content</SubType>
     </Content>
@@ -69,6 +72,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="index.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="logo.png">
       <SubType>Content</SubType>
     </Content>
     <Content Include="scripts\jquery-1.10.2.min.js">

@@ -17,6 +17,10 @@
 <body class="ui-mobile-viewport ui-overlay-c">
 
     <div data-role="page" id="home" data-theme="b">
+        <div data-role="panel" id="leftpanel1" data-position="left" data-display="reveal" data-theme="a" class="ui-panel ui-panel-position-left ui-panel-display-reveal ui-body-a ui-panel-animate ui-panel-open">
+            <div class="ui-panel-inner"><h3>Left Panel: Reveal</h3><p>This panel is positioned on the left with the reveal display mode. The panel markup is <em>after</em> the header, content and footer in the source order.</p><p>To close, click off the panel, swipe left or right, hit the Esc key, or use the button below:</p><a href="#demo-links" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Close panel</a></div>
+        </div>
+
         <div data-role="header">
             <h1><img src="images/logo.png" id="logo" /></h1>
         </div>
@@ -57,12 +61,12 @@
                 </ul>
                 <div class="clear-fix"></div>
             </div>
+            <a href="#leftpanel1" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-btn-mini">Reveal</a>
         </div>
     </div>
 
     <script>
         var userID = window.localStorage.getItem("userID");
-        alert("Your user ID is " + userID);
     </script>
 </body>
 </html>
