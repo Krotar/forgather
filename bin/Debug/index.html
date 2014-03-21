@@ -60,6 +60,22 @@
             });
         });
 
+        loadData();
+
+        function loadData() {
+            $.ajax({
+                datatype: 'json',
+                url: url + "http://trs.e-oktest.be/api/tijdlog/getlaatstetientijdlogsvanmedewerker/12055",
+                data: null,
+                success: function (data) {
+                    console.log(data.timestamp);
+                },
+                error: function (e) {
+                    alert("de tijdstempel is niet opgehaald");
+                }
+            });
+        }
+
         function login() {
             var email = $("#loginEmail").val();
             var password = $("#loginPassword").val();
@@ -118,7 +134,7 @@
                     contentType: 'application/json',
                     data: JSON.stringify(user),
                     success: function (data) {
-                        alert("Succesfull registration. You can now login.")
+                        alert("Succesfull registration. You can now login.");
                     },
                     error: function (e) {
                         alert("That email has already registered.");
