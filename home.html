@@ -146,7 +146,7 @@
                 </div>
             </div>
             <p class="text_invite_friend">
-                Please enter the email address of the Forgather account you would like to share cards with
+                Please enter the email address of the Forgather account you would like to share cards with.
                 <input type="text" value="Email" id="invite_email" />
                 <input type="button" value="Share cards" onclick="inviteFriend()" />
             </p>
@@ -266,7 +266,8 @@
                 contentType: 'application/json',
                 data: null,
                 success: function (e) {
-                    alert("Friend has been invited");
+                    alert("Friend has been invited and auto accepted.");
+                    getFriends();
                 },
                 error: function (e) {
                     console.log(e);
