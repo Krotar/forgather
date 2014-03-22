@@ -18,17 +18,17 @@
 
     <div data-role="page" id="home" data-theme="b">
         <div data-role="header" class="header">
-            <div class="left"><img src="images/share.png" /></div>
+            <div class="left"><a href="#invite_friend"><img src="images/share.png" /></a></div>
             <div class="right"><a href="#home_friendspanel"><img src="images/friends.png" class="friends" /></a></div>
-            <div class="center"><img src="images/logo.png" class="logo" /></div>
+            <div class="center"><a href="#home"><img src="images/logo.png" class="logo" /></a></div>
         </div>
 
         <div data-role="content" class="ui-content home" role="main">
             <div class="section">
                 <div class="profile">
-                    <div class="right"><a href="#editProfile"><img src="images/edit.png" style="height:30px; width:auto;" /></a></div>
+                    <div class="right"><a href="#edit_profile"><img src="images/edit.png" style="height:30px; width:auto;" /></a></div>
                     <div class="center"><img src="images/profiles/nick.png" /></div>
-                    <p><span id="home_name">Please setup your account</span></p>
+                    <p><span class="display_name">Please setup your account</span></p>
                 </div>
             </div>
             <div class="section">
@@ -64,20 +64,16 @@
             <div class="ui-panel-inner">
                 <ul class="friends">
                     <li>Search contacts</li>
-                    <li>Nick van der Meulen</li>
-                    <li>Leroy Zut</li>
-                    <li>Frank Eijben</li>
-                    <li>Brent van der Meulen</li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <div data-role="page" id="editProfile" data-theme="b">
+    <div data-role="page" id="edit_profile" data-theme="b">
         <div data-role="header" class="header">
             <div class="left"><img src="images/share.png" /></div>
             <div class="right"><a href="#edit_friendspanel"><img src="images/friends.png" class="friends" /></a></div>
-            <div class="center"><img src="images/logo.png" class="logo" /></div>
+            <div class="center"><a href="#home"><img src="images/logo.png" class="logo" /></a></div>
         </div>
 
         <div data-role="content" class="ui-content home" role="main">
@@ -130,33 +126,61 @@
             <div class="ui-panel-inner">
                 <ul class="friends">
                     <li>Search contacts</li>
-                    <li>Nick van der Meulen</li>
-                    <li>Leroy Zut</li>
-                    <li>Frank Eijben</li>
-                    <li>Brent van der Meulen</li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <script>
-        //var url = "http://localhost:57320/";
-        var url = "http://forgather.azurewebsites.net/";
+    <div data-role="page" id="invite_friend" data-theme="b">
+        <div data-role="header" class="header">
+            <div class="left"><img src="images/share.png" /></div>
+            <div class="right"><a href="#invite_friend_friendspanel"><img src="images/friends.png" class="friends" /></a></div>
+            <div class="center"><a href="#home"><img src="images/logo.png" class="logo" /></a></div>
+        </div>
 
+        <div data-role="content" class="ui-content home" role="main">
+            <div class="section">
+                <div class="profile">
+                    <div class="center"><img src="images/profiles/nick.png" /></div>
+                    <p><span class="display_name">Please setup your account</span></p>
+                </div>
+            </div>
+            <p class="text_invite_friend">
+                Please enter the email address of the Forgather account you would like to share cards with
+                <input type="text" value="Email" id="invite_email" />
+                <input type="button" value="Share cards" onclick="inviteFriend()" />
+            </p>
+            <p class="disclaimer_invite_friend">
+                To finish the card sharing progress the recipient needs to accept your request first.
+            </p>
+        </div>
+
+        <div data-role="panel" id="invite_friend_friendspanel" data-position="right" data-display="reveal" data-theme="b" class="ui-panel ui-panel-position-right ui-panel-display-reveal ui-body-b ui-panel-animate ui-panel-open">
+            <div class="ui-panel-inner">
+                <ul class="friends">
+                    <li>Search contacts</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/database_connection.js"></script>
+    <script>
         var profile;
+        var friends;
 
         $(document).ready(function () {
             profile = JSON.parse(window.localStorage.getItem('profile'));
-            console.log(profile);
 
             if (profile.profileID != 0) {
                 setProfileData();
             }
+            getFriends();
         });
 
         function setProfileData() {
             //home
-            $('#home_name').text(profile.name);
+            $('.display_name').text(profile.name);
 
             //edit
             $('#edit_name').val(profile.name);
@@ -214,6 +238,40 @@
                 },
                 dataType: 'json',
                 contentType: "application/json"
+            });
+        }
+
+        function getFriends() {
+            $.ajax({
+                datatype: 'json',
+                url: url + "/api/friend/getfriends?userID=" + profile.userID,
+                data: null,
+                success: function (data) {
+                    friends = data;
+                    $.each(friends, function (index, value) {
+                        $(".friends").append('<li>' + value.name + '</li>');
+                    });
+                },
+                error: function (e) {
+                    alert("Could not fetch friends.");
+                }
+            });
+        }
+
+        function inviteFriend() {
+            $.ajax({
+                url: url + 'api/friend/invite?userID=' + profile.userID + '&friendName=' + $("#invite_email").val(),
+                type: 'POST',
+                async: false,
+                contentType: 'application/json',
+                data: null,
+                success: function (e) {
+                    alert("Friend has been invited");
+                },
+                error: function (e) {
+                    console.log(e);
+                    alert("The user was not found.");
+                }
             });
         }
     </script>
