@@ -65,6 +65,9 @@
     <Content Include="images\choosephoto.png">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="images\friends.png">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="images\logo.png">
       <SubType>Content</SubType>
     </Content>

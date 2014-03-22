@@ -1,4 +1,6 @@
-﻿
+﻿html{
+    overflow-y:no-display;
+}
 
 .left {
     float: left;
@@ -29,65 +31,88 @@
 #home {
 }
 
-    #home h1 #logo {
-        width: 35px;
+.header {
+    padding: 13px 0px 13px 0px;
+    border-bottom: 3px #c06e3f solid !important;
+}
+
+    .header div img {
+        height: 30px;
     }
 
-    #home .ui-content {
-        background-color: #ffffff;
-        margin: 10px;
-        padding: 10px;
+    .header .left {
+        text-align: center;
+        float: left;
+        width: 50px;
     }
 
-        #home .ui-content .section {
-            border-bottom: 2px solid #e5e5e5;
+    .header .right {
+        text-align: center;
+        float: right;
+        width: 50px;
+    }
+
+    .header .center {
+        text-align: center;
+        margin: 0 auto;
+        width: 50px;
+    }
+
+#home .ui-content {
+    background-color: #ffffff;
+    margin: 10px;
+    padding: 10px;
+}
+
+    #home .ui-content .section {
+        border-bottom: 2px solid #e5e5e5;
+    }
+
+        #home .ui-content .section > .left {
+            margin-top: 15px;
         }
 
-            #home .ui-content .section > .left {
-                margin-top: 15px;
-            }
-
-            #home .ui-content .section .left img {
-                height: 25px;
-                width: 25px;
-            }
-
-            #home .ui-content .section .left span {
-                margin-top: 4px;
-                margin-left: 8px;
-                font-size: 14px;
-            }
-
-            #home .ui-content .section p {
-                display: block;
-                margin: 0px;
-                padding: 0px;
-            }
-
-            #home .ui-content .section #profile {
-                text-align: center;
-                margin-bottom: 15px;
-            }
-
-                #home .ui-content .section #profile img {
-                    height: 100px;
-                    width: 100px;
-                }
-
-                #home .ui-content .section #profile p {
-                    margin-top: 20px;
-                }
-
-    #home .section ul {
-        list-style-type: none;
-        margin: 0px;
-        padding: 0px;
-        margin-left: 15px;
-    }
-
-        #home .section ul li {
-            height: 40px;
+        #home .ui-content .section .left img {
+            height: 25px;
+            width: 25px;
         }
+
+        #home .ui-content .section .left span {
+            margin-top: 4px;
+            margin-left: 8px;
+            font-size: 14px;
+        }
+
+        #home .ui-content .section p {
+            display: block;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #home .ui-content .section #profile {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+            #home .ui-content .section #profile img {
+                height: 100px;
+                width: 100px;
+            }
+
+            #home .ui-content .section #profile p {
+                margin-top: 20px;
+            }
+
+#home .section ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    margin-left: 15px;
+}
+
+    #home .section ul li {
+        height: 40px;
+    }
 
 .friends {
     list-style: none;
