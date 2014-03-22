@@ -147,7 +147,7 @@
             </div>
             <p class="text_invite_friend">
                 Please enter the email address of the Forgather account you would like to share cards with.
-                <input type="text" value="Email" id="invite_email" />
+                <input type="text" id="invite_email" alt="Email" />
                 <input type="button" value="Share cards" onclick="inviteFriend()" />
             </p>
             <p class="disclaimer_invite_friend">
@@ -176,6 +176,24 @@
                 setProfileData();
             }
             getFriends();
+
+            $("input:text, input:password").each(function () {
+                $(this).val($(this).attr("alt"));
+            });
+
+            // clear input.text on focus, if still in default
+            $("input:text, input:password").focus(function () {
+                if ($(this).val() == $(this).attr("alt")) {
+                    $(this).val("");
+                }
+            });
+
+            // if field is empty afterward, add text again
+            $("input:text, input:password").blur(function () {
+                if ($(this).val() == "") {
+                    $(this).val($(this).attr("alt"));
+                }
+            });
         });
 
         function setProfileData() {
