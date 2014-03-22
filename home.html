@@ -13,9 +13,7 @@
     <style type="text/css"></style>
 </head>
 
-
 <body class="ui-mobile-viewport ui-overlay-c">
-
     <div data-role="page" id="home" data-theme="b">
         <div data-role="header" class="header">
             <div class="left"><a href="#invite_friend"><img src="images/share.png" /></a></div>
@@ -62,7 +60,7 @@
         </div>
         <div data-role="panel" id="home_friendspanel" data-position="right" data-display="reveal" data-theme="b" class="ui-panel ui-panel-position-right ui-panel-display-reveal ui-body-b ui-panel-animate ui-panel-open">
             <div class="ui-panel-inner">
-                <a id='show_friend_link' href="#show_friend" style='display:none;'></a>
+                <a class='hide_panel' data-rel="close" href="#show_friend" style='display:none;'></a>
                 <ul class="friends">
                     <li>Search contacts</li>
                 </ul>
@@ -125,7 +123,7 @@
 
         <div data-role="panel" id="edit_friendspanel" data-position="right" data-display="reveal" data-theme="b" class="ui-panel ui-panel-position-right ui-panel-display-reveal ui-body-b ui-panel-animate ui-panel-open">
             <div class="ui-panel-inner">
-                <a id='show_friend_link' href="#show_friend" style='display:none;'></a>
+                <a class='hide_panel' data-rel="close" href="#show_friend" style='display:none;'></a>
                 <ul class="friends">
                     <li>Search contacts</li>
                 </ul>
@@ -159,7 +157,7 @@
 
         <div data-role="panel" id="invite_friend_friendspanel" data-position="right" data-display="reveal" data-theme="b" class="ui-panel ui-panel-position-right ui-panel-display-reveal ui-body-b ui-panel-animate ui-panel-open">
             <div class="ui-panel-inner">
-                <a id='show_friend_link' href="#show_friend" style='display:none;'></a>
+                <a class='hide_panel' data-rel="close" href="#show_friend" style='display:none;'></a>
                 <ul class="friends">
                     <li>Search contacts</li>
                 </ul>
@@ -213,7 +211,7 @@
 
         <div data-role="panel" id="show_friend_friendspanel" data-position="right" data-display="reveal" data-theme="b" class="ui-panel ui-panel-position-right ui-panel-display-reveal ui-body-b ui-panel-animate ui-panel-open">
             <div class="ui-panel-inner">
-                <a id='show_friend_link' href="#show_friend" style='display:none;'></a>
+                <a class='hide_panel' data-rel="close" href="#show_friend" style='display:none;'></a>
                 <ul class="friends">
                     <li>Search contacts</li>
                 </ul>
@@ -337,7 +335,7 @@
         function showFriend(number) {
             friend = friends[number];
             $('.friend_name').text(friend.name);
-            $("#show_friend_link").click();
+            $(".hide_panel").click();
         }
 
         function inviteFriend() {

@@ -2,6 +2,7 @@
 <widget id="com.example.mobile" version="1.0.0" xmlns:gap="http://phonegap.com/ns/1.0" xmlns="http://www.w3.org/ns/widgets">
   <name>Forgather</name>
   <description>
+    Development version Forgather
   </description>
   <icon src="logo.png"></icon>
   <icon src="/icons/android/icon-hdpi.png" gap:density="hdpi" gap:platform="android" />
@@ -9,7 +10,6 @@
   <icon src="/icons/android/icon-mdpi.png" gap:density="mdpi" gap:platform="android" />
   <icon src="/icons/android/icon-xhdpi.png" gap:density="xhdpi" gap:platform="android" />
   <icon src="/icons/android/icon-xxhdpi.png" gap:density="xxhdpi" gap:platform="android" />
-  
   <author email="nicolanauwynck@hotmail.com">nicolanauwynck@hotmail.com</author>
   <access origin="*" />
   <preference name="phonegap-version" value="3.1.0" />
