@@ -1,5 +1,5 @@
-﻿html{
-    overflow-y:no-display;
+﻿html {
+    overflow-y: no-display;
 }
 
 .left {
@@ -13,7 +13,7 @@
 #login {
 }
 
-    #login .ui-content, #register .ui-content {
+    #login .home, #register .home {
         text-align: center;
     }
 
@@ -58,61 +58,78 @@
         width: 50px;
     }
 
-#home .ui-content {
+.home {
     background-color: #ffffff;
     margin: 10px;
     padding: 10px;
 }
 
-    #home .ui-content .section {
+    .home .section {
         border-bottom: 2px solid #e5e5e5;
     }
 
-        #home .ui-content .section > .left {
+        .home .section > .left {
             margin-top: 15px;
         }
 
-        #home .ui-content .section .left img {
+        .home .section .left img {
             height: 25px;
             width: 25px;
         }
 
-        #home .ui-content .section .left span {
+        .home .section .left span {
             margin-top: 4px;
             margin-left: 8px;
             font-size: 14px;
         }
 
-        #home .ui-content .section p {
+        .home .section p {
             display: block;
             margin: 0px;
             padding: 0px;
         }
 
-        #home .ui-content .section #profile {
+        .home .section .profile {
             text-align: center;
             margin-bottom: 15px;
         }
 
-            #home .ui-content .section #profile img {
+            .home .section .profile img {
                 height: 100px;
                 width: 100px;
             }
 
-            #home .ui-content .section #profile p {
+            .home .section .profile p {
                 margin-top: 20px;
             }
 
-#home .section ul {
+            .home .section .profile .right {
+                text-align: center;
+                float: right;
+                width: 50px;
+            }
+
+            .home .section .profile .center {
+                text-align: center;
+                margin: 0 auto;
+                width: 100px;
+            }
+
+.section ul {
     list-style-type: none;
     margin: 0px;
     padding: 0px;
     margin-left: 15px;
 }
 
-    #home .section ul li {
+    .section ul li {
         height: 40px;
     }
+
+label {
+    font-weight: bold;
+    margin-top: 10px !important;
+}
 
 .friends {
     list-style: none;

@@ -65,6 +65,9 @@
     <Content Include="images\choosephoto.png">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="images\edit.png">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="images\friends.png">
       <SubType>Content</SubType>
     </Content>
@@ -72,6 +75,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="images\profiles\nick.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="images\share.png">
       <SubType>Content</SubType>
     </Content>
     <Content Include="index.html">
