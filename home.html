@@ -60,7 +60,6 @@
         </div>
         <div data-role="panel" id="home_friendspanel" data-position="right" data-display="reveal" data-theme="b" class="ui-panel ui-panel-position-right ui-panel-display-reveal ui-body-b ui-panel-animate ui-panel-open">
             <div class="ui-panel-inner">
-                <a class='hide_panel' data-rel="close" href="#show_friend" style='display:none;'></a>
                 <ul class="friends">
                     <li>Search contacts</li>
                 </ul>
@@ -123,7 +122,6 @@
 
         <div data-role="panel" id="edit_friendspanel" data-position="right" data-display="reveal" data-theme="b" class="ui-panel ui-panel-position-right ui-panel-display-reveal ui-body-b ui-panel-animate ui-panel-open">
             <div class="ui-panel-inner">
-                <a class='hide_panel' data-rel="close" href="#show_friend" style='display:none;'></a>
                 <ul class="friends">
                     <li>Search contacts</li>
                 </ul>
@@ -157,7 +155,6 @@
 
         <div data-role="panel" id="invite_friend_friendspanel" data-position="right" data-display="reveal" data-theme="b" class="ui-panel ui-panel-position-right ui-panel-display-reveal ui-body-b ui-panel-animate ui-panel-open">
             <div class="ui-panel-inner">
-                <a class='hide_panel' data-rel="close" href="#show_friend" style='display:none;'></a>
                 <ul class="friends">
                     <li>Search contacts</li>
                 </ul>
@@ -210,7 +207,7 @@
         </div>
 
         <div data-role="panel" id="show_friend_friendspanel" data-position="right" data-display="reveal" data-theme="b" class="ui-panel ui-panel-position-right ui-panel-display-reveal ui-body-b ui-panel-animate ui-panel-open">
-            <div class="ui-panel-inner">
+            <div class="ui-panel-inner"> 
                 <a class='hide_panel' data-rel="close" href="#show_friend" style='display:none;'></a>
                 <ul class="friends">
                     <li>Search contacts</li>
@@ -223,6 +220,7 @@
     <script>
         var profile;
         var friends;
+        var currentPage;
 
         $(document).ready(function () {
             profile = JSON.parse(window.localStorage.getItem('profile'));
