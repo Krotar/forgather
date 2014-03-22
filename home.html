@@ -266,8 +266,9 @@
                 data: null,
                 success: function (data) {
                     friends = data;
+                    $('.friends .user').remove();
                     $.each(friends, function (index, value) {
-                        $(".friends").append('<li>' + value.name + '</li>');
+                        $(".friends").append('<li class="user">' + value.name + '</li>');
                     });
                 },
                 error: function (e) {
