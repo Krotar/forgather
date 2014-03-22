@@ -40,7 +40,7 @@
                 <div class="profile">
                     <div class="right"><a href="#editProfile"><img src="images/edit.png" style="height:30px; width:auto;" /></a></div>
                     <div class="center"><img src="images/profiles/nick.png" /></div>
-                    <p>Nick Van Der Meulen</p>
+                    <p><span id="home_name">Please setup your account</span></p>
                 </div>
             </div>
             <div class="section">
@@ -101,51 +101,122 @@
                 </div>
             </div>
 
-                <label>Name</label>
-                <input type="text" id="edit_name"/>
-                <label>House number</label>
-                <input type="text" id="edit_house_number" />
-                <label>Phone number</label>
-                <input type="text" id="edit_phone_number" />
-                <label>Mail</label>
-                <input type="text" id="edit_mail" />
-                <label>Private mail</label>
-                <input type="text" id="edit_private_mail" />
-                <label>Facebook</label>
-                <input type="text" id="edit_facebook" />
-                <label>Twitter</label>
-                <input type="text" id="edit_twitter" />
-                <label>Linkedin</label>
-                <input type="text" id="edit_linkedin" />
-                <label>Instagram</label>
-                <input type="text" id="edit_instagram" />
-                <label>Skype</label>
-                <input type="text" id="edit_skype" />
-                <label>Google+</label>
-                <input type="text" id="edit_google" />
-                <label>Pinterest</label>
-                <input type="text" id="edit_pinterest" />
-                <label>Uknown</label>
-                <input type="text" id="edit_unkown" />
-                <label>Soundcloud</label>
-                <input type="text" id="edit_soundcloud" />
-                <label>Steam</label>
-                <input type="text" id="edit_steam" />
-                <label>Playstation</label>
-                <input type="text" id="edit_playstation" />
-                <label>Xbox</label>
-                <input type="text" id="edit_xbox" />
-                <input type="submit" value="Save profile" />
+            <label>Name</label>
+            <input type="text" id="edit_name" />
+            <label>Private number</label>
+            <input type="text" id="edit_private_number" />
+            <label>Phone number</label>
+            <input type="text" id="edit_phone_number" />
+            <label>Mail</label>
+            <input type="text" id="edit_mail" />
+            <label>Private mail</label>
+            <input type="text" id="edit_private_mail" />
+            <label>Facebook</label>
+            <input type="text" id="edit_facebook" />
+            <label>Twitter</label>
+            <input type="text" id="edit_twitter" />
+            <label>Linkedin</label>
+            <input type="text" id="edit_linkedin" />
+            <label>Instagram</label>
+            <input type="text" id="edit_instagram" />
+            <label>Skype</label>
+            <input type="text" id="edit_skype" />
+            <label>Google+</label>
+            <input type="text" id="edit_googlePlus" />
+            <label>Pinterest</label>
+            <input type="text" id="edit_pinterest" />
+            <label>Uknown</label>
+            <input type="text" id="edit_unkown" />
+            <label>Soundcloud</label>
+            <input type="text" id="edit_soundcloud" />
+            <label>Steam</label>
+            <input type="text" id="edit_steam" />
+            <label>Playstation</label>
+            <input type="text" id="edit_playstation" />
+            <label>Xbox</label>
+            <input type="text" id="edit_xbox" />
+            <input type="button" value="Save profile" onclick="editProfile()" />
 
         </div>
     </div>
 
     <script>
-        var userID;
+        //var url = "http://localhost:57320/";
+        var url = "http://forgather.azurewebsites.net/";
+
+        var profile;
+
         $(document).ready(function () {
-            userID = window.localStorage.getItem("userID");
-            console.log(userID);
+            profile = JSON.parse(window.localStorage.getItem('profile'));
+            console.log(profile);
+
+            if (profile.profileID != 0) {
+                setProfileData();
+            }
         });
+
+        function setProfileData() {
+            //home
+            $('#home_name').text(profile.name);
+
+            //edit
+            $('#edit_name').val(profile.name);
+            $('#edit_private_number').val(profile.privateNumber);
+            $('#edit_phone_number').val(profile.phoneNumber);
+            $('#edit_mail').val(profile.workMail);
+            $('#edit_private_mail').val(profile.privateMail);
+            $('#edit_facebook').val(profile.facebook);
+            $('#edit_twitter').val(profile.twitter);
+            $('#edit_linkedin').val(profile.linkedin);
+            $('#edit_instagram').val(profile.instagram);
+            $('#edit_skype').val(profile.skype);
+            $('#edit_googlePlus').val(profile.googlePlus);
+            $('#edit_pinterest').val(profile.pinterest);
+            $('#edit_unkown').val(profile.unknown);
+            $('#edit_soundcloud').val(profile.soundcloud);
+            $('#edit_steam').val(profile.steam);
+            $('#edit_playstation').val(profile.playstation);
+            $('#edit_xbox').val(profile.xbox);
+        }
+
+        function editProfile() {
+            profile.name = $('#edit_name').val();
+            profile.privateNumber = $('#edit_private_number').val();
+            profile.phoneNumber = $('#edit_phone_number').val();
+            profile.workMail = $('#edit_mail').val();
+            profile.privateMail = $('#edit_private_mail').val();
+            profile.facebook = $('#edit_facebook').val();
+            profile.twitter = $('#edit_twitter').val();
+            profile.linkedin = $('#edit_linkedin').val();
+            profile.instagram = $('#edit_instagram').val();
+            profile.skype = $('#edit_skype').val();
+            profile.googlePlus = $('#edit_googlePlus').val();
+            profile.pinterest = $('#edit_pinterest').val();
+            profile.unknown = $('#edit_unkown').val();
+            profile.soundcloud = $('#edit_soundcloud').val();
+            profile.steam = $('#edit_steam').val();
+            profile.playstation = $('#edit_playstation').val();
+            profile.xbox = $('#edit_xbox').val();
+            
+            $.ajax({
+                url: url + 'api/profile/postprofile',
+                type: 'POST',
+                async: false,
+                contentType: 'application/json',
+                data: JSON.stringify(profile),
+                success: function (data) {
+                    profile = data;
+                    window.localStorage.setItem('profile', JSON.stringify(data));
+                    setProfileData();
+                    window.location.href = "#home";
+                },
+                error: function (e) {
+                    alert("Something went wrong.");
+                },
+                dataType: 'json',
+                contentType: "application/json"
+            });
+        }
     </script>
 </body>
 </html>
