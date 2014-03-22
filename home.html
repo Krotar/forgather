@@ -135,14 +135,15 @@
             <input type="text" id="edit_playstation" />
             <label>Xbox</label>
             <input type="text" id="edit_xbox" />
+            <a id='edit_home_link' href="#home" style='display:none;'></a>
             <input type="button" value="Save profile" onclick="editProfile()" />
 
         </div>
     </div>
 
     <script>
-        //var url = "http://localhost:57320/";
-        var url = "http://forgather.azurewebsites.net/";
+        var url = "http://localhost:57320/";
+        //var url = "http://forgather.azurewebsites.net/";
 
         var profile;
 
@@ -208,7 +209,7 @@
                     profile = data;
                     window.localStorage.setItem('profile', JSON.stringify(data));
                     setProfileData();
-                    window.location.href = "#home";
+                    $("#edit_home_link").click();
                 },
                 error: function (e) {
                     alert("Something went wrong.");
