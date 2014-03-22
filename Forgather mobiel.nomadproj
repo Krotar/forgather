@@ -86,6 +86,9 @@
     <Content Include="logo.png">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="scripts\database_connection.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="scripts\jquery-1.10.2.min.js">
       <SubType>Content</SubType>
     </Content>

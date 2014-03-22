@@ -28,7 +28,7 @@
                 <div class="profile">
                     <div class="right"><a href="#edit_profile"><img src="images/edit.png" style="height:30px; width:auto;" /></a></div>
                     <div class="center"><img src="images/profiles/nick.png" /></div>
-                    <p><span class="display_name">Please setup your account</span></p>
+                    <p><span class="user_name">Please setup your account</span></p>
                 </div>
             </div>
             <div class="section">
@@ -62,6 +62,7 @@
         </div>
         <div data-role="panel" id="home_friendspanel" data-position="right" data-display="reveal" data-theme="b" class="ui-panel ui-panel-position-right ui-panel-display-reveal ui-body-b ui-panel-animate ui-panel-open">
             <div class="ui-panel-inner">
+                <a id='show_friend_link' href="#show_friend" style='display:none;'></a>
                 <ul class="friends">
                     <li>Search contacts</li>
                 </ul>
@@ -71,7 +72,7 @@
 
     <div data-role="page" id="edit_profile" data-theme="b">
         <div data-role="header" class="header">
-            <div class="left"><img src="images/share.png" /></div>
+            <div class="left"><a href="#invite_friend"><img src="images/share.png" /></a></div>
             <div class="right"><a href="#edit_friendspanel"><img src="images/friends.png" class="friends" /></a></div>
             <div class="center"><a href="#home"><img src="images/logo.png" class="logo" /></a></div>
         </div>
@@ -124,6 +125,7 @@
 
         <div data-role="panel" id="edit_friendspanel" data-position="right" data-display="reveal" data-theme="b" class="ui-panel ui-panel-position-right ui-panel-display-reveal ui-body-b ui-panel-animate ui-panel-open">
             <div class="ui-panel-inner">
+                <a id='show_friend_link' href="#show_friend" style='display:none;'></a>
                 <ul class="friends">
                     <li>Search contacts</li>
                 </ul>
@@ -133,7 +135,7 @@
 
     <div data-role="page" id="invite_friend" data-theme="b">
         <div data-role="header" class="header">
-            <div class="left"><img src="images/share.png" /></div>
+            <div class="left"><a href="#invite_friend"><img src="images/share.png" /></a></div>
             <div class="right"><a href="#invite_friend_friendspanel"><img src="images/friends.png" class="friends" /></a></div>
             <div class="center"><a href="#home"><img src="images/logo.png" class="logo" /></a></div>
         </div>
@@ -142,7 +144,7 @@
             <div class="section">
                 <div class="profile">
                     <div class="center"><img src="images/profiles/nick.png" /></div>
-                    <p><span class="display_name">Please setup your account</span></p>
+                    <p><span class="user_name">Please setup your account</span></p>
                 </div>
             </div>
             <p class="text_invite_friend">
@@ -157,6 +159,61 @@
 
         <div data-role="panel" id="invite_friend_friendspanel" data-position="right" data-display="reveal" data-theme="b" class="ui-panel ui-panel-position-right ui-panel-display-reveal ui-body-b ui-panel-animate ui-panel-open">
             <div class="ui-panel-inner">
+                <a id='show_friend_link' href="#show_friend" style='display:none;'></a>
+                <ul class="friends">
+                    <li>Search contacts</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div data-role="page" id="show_friend" data-theme="b">
+        <div data-role="header" class="header">
+            <div class="left"><a href="#invite_friend"><img src="images/share.png" /></a></div>
+            <div class="right"><a href="#show_friend_friendspanel"><img src="images/friends.png" class="friends" /></a></div>
+            <div class="center"><a href="#home"><img src="images/logo.png" class="logo" /></a></div>
+        </div>
+
+        <div data-role="content" class="ui-content home" role="main">
+            <div class="section">
+                <div class="profile">
+                    <div class="center"><img src="images/profiles/nick.png" /></div>
+                    <p><span class="friend_name">Friend name</span></p>
+                </div>
+            </div>
+            <div class="section">
+                <p class="left">
+                    <img src="images/buttons/category_phone.png" />
+                </p>
+                <ul class="left">
+                    <li>
+                        <img src="images/buttons/category_phone_home.png" class="left" /><span class="left">+31 756 31 27 33</span>
+                    </li>
+                    <li>
+                        <img src="images/buttons/category_phone_mobile.png" class="left" /><span class="left">+31 654 61 70 68</span>
+                    </li>
+                </ul>
+                <div class="clear-fix"></div>
+            </div>
+            <div class="section">
+                <p class="left">
+                    <img src="images/buttons/category_contact.png" />
+                </p>
+                <ul class="left">
+                    <li>
+                        <img src="images/buttons/category_contact_one.png" class="left" /><span class="left">nick.van.der.meulen@hva.nl</span>
+                    </li>
+                    <li>
+                        <img src="images/buttons/category_contact_one.png" class="left" /><span class="left">nick.van.der.m@gmail.com</span>
+                    </li>
+                </ul>
+                <div class="clear-fix"></div>
+            </div>
+        </div>
+
+        <div data-role="panel" id="show_friend_friendspanel" data-position="right" data-display="reveal" data-theme="b" class="ui-panel ui-panel-position-right ui-panel-display-reveal ui-body-b ui-panel-animate ui-panel-open">
+            <div class="ui-panel-inner">
+                <a id='show_friend_link' href="#show_friend" style='display:none;'></a>
                 <ul class="friends">
                     <li>Search contacts</li>
                 </ul>
@@ -198,7 +255,7 @@
 
         function setProfileData() {
             //home
-            $('.display_name').text(profile.name);
+            $('.user_name').text(profile.name);
 
             //edit
             $('#edit_name').val(profile.name);
@@ -268,13 +325,19 @@
                     friends = data;
                     $('.friends .user').remove();
                     $.each(friends, function (index, value) {
-                        $(".friends").append('<li class="user">' + value.name + '</li>');
+                        $(".friends").append('<li class="user" onclick="showFriend(' + index + ')">' + value.name + '</li>');
                     });
                 },
                 error: function (e) {
                     alert("Could not fetch friends.");
                 }
             });
+        }
+
+        function showFriend(number) {
+            friend = friends[number];
+            $('.friend_name').text(friend.name);
+            $("#show_friend_link").click();
         }
 
         function inviteFriend() {
