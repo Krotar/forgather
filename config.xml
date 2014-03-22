@@ -2,6 +2,7 @@
 <widget id="com.example.mobile" version="1.0.0" xmlns:gap="http://phonegap.com/ns/1.0" xmlns="http://www.w3.org/ns/widgets">
   <name>Forgather</name>
   <description>
+    Development version Forgather
   </description>
   <icon src="logo.png" />
   <icon src="/icons/android/icon-hdpi.png" gap:density="hdpi" gap:platform="android" />
