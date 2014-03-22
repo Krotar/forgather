@@ -17,21 +17,9 @@
 <body class="ui-mobile-viewport ui-overlay-c">
 
     <div data-role="page" id="home" data-theme="b">
-        <div data-role="panel" id="friendsPanel" data-position="right" data-display="reveal" data-theme="b" class="ui-panel ui-panel-position-right ui-panel-display-reveal ui-body-b ui-panel-animate ui-panel-open">
-            <div class="ui-panel-inner">
-                <ul class="friends">
-                    <li>Search contacts</li>
-                    <li>Nick van der Meulen</li>
-                    <li>Leroy Zut</li>
-                    <li>Frank Eijben</li>
-                    <li>Brent van der Meulen</li>
-                </ul>
-            </div>
-        </div>
-
         <div data-role="header" class="header">
             <div class="left"><img src="images/share.png" /></div>
-            <div class="right"><a href="#friendsPanel"><img src="images/friends.png" class="friends" /></a></div>
+            <div class="right"><a href="#home_friendspanel"><img src="images/friends.png" class="friends" /></a></div>
             <div class="center"><img src="images/logo.png" class="logo" /></div>
         </div>
 
@@ -72,10 +60,7 @@
                 <div class="clear-fix"></div>
             </div>
         </div>
-    </div>
-
-    <div data-role="page" id="editProfile" data-theme="b">
-        <div data-role="panel" id="friendsPanel" data-position="right" data-display="reveal" data-theme="b" class="ui-panel ui-panel-position-right ui-panel-display-reveal ui-body-b ui-panel-animate ui-panel-open">
+        <div data-role="panel" id="home_friendspanel" data-position="right" data-display="reveal" data-theme="b" class="ui-panel ui-panel-position-right ui-panel-display-reveal ui-body-b ui-panel-animate ui-panel-open">
             <div class="ui-panel-inner">
                 <ul class="friends">
                     <li>Search contacts</li>
@@ -86,10 +71,12 @@
                 </ul>
             </div>
         </div>
+    </div>
 
+    <div data-role="page" id="editProfile" data-theme="b">
         <div data-role="header" class="header">
             <div class="left"><img src="images/share.png" /></div>
-            <div class="right"><a href="#friendsPanel"><img src="images/friends.png" class="friends" /></a></div>
+            <div class="right"><a href="#edit_friendspanel"><img src="images/friends.png" class="friends" /></a></div>
             <div class="center"><img src="images/logo.png" class="logo" /></div>
         </div>
 
@@ -137,7 +124,18 @@
             <input type="text" id="edit_xbox" />
             <a id='edit_home_link' href="#home" style='display:none;'></a>
             <input type="button" value="Save profile" onclick="editProfile()" />
+        </div>
 
+        <div data-role="panel" id="edit_friendspanel" data-position="right" data-display="reveal" data-theme="b" class="ui-panel ui-panel-position-right ui-panel-display-reveal ui-body-b ui-panel-animate ui-panel-open">
+            <div class="ui-panel-inner">
+                <ul class="friends">
+                    <li>Search contacts</li>
+                    <li>Nick van der Meulen</li>
+                    <li>Leroy Zut</li>
+                    <li>Frank Eijben</li>
+                    <li>Brent van der Meulen</li>
+                </ul>
+            </div>
         </div>
     </div>
 
@@ -198,7 +196,7 @@
             profile.steam = $('#edit_steam').val();
             profile.playstation = $('#edit_playstation').val();
             profile.xbox = $('#edit_xbox').val();
-            
+
             $.ajax({
                 url: url + 'api/profile/postprofile',
                 type: 'POST',
