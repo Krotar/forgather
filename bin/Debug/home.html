@@ -13,34 +13,20 @@
     <style type="text/css"></style>
 </head>
 
-
 <body class="ui-mobile-viewport ui-overlay-c">
-
     <div data-role="page" id="home" data-theme="b">
-        <div data-role="panel" id="friendsPanel" data-position="right" data-display="reveal" data-theme="b" class="ui-panel ui-panel-position-right ui-panel-display-reveal ui-body-b ui-panel-animate ui-panel-open">
-            <div class="ui-panel-inner">
-                <ul class="friends">
-                    <li>Search contacts</li>
-                    <li>Nick van der Meulen</li>
-                    <li>Leroy Zut</li>
-                    <li>Frank Eijben</li>
-                    <li>Brent van der Meulen</li>
-                </ul>
-            </div>
-        </div>
-
         <div data-role="header" class="header">
-            <div class="left"><img src="images/share.png" /></div>
-            <div class="right"><a href="#friendsPanel"><img src="images/friends.png" class="friends" /></a></div>
-            <div class="center"><img src="images/logo.png" class="logo" /></div>
+            <div class="left"><a href="#invite_friend"><img src="images/share.png" /></a></div>
+            <div class="right"><a href="#home_friendspanel"><img src="images/friends.png" class="friends" /></a></div>
+            <div class="center"><a href="#home"><img src="images/logo.png" class="logo" /></a></div>
         </div>
 
-        <div data-role="content" class="ui-content" role="main">
+        <div data-role="content" class="ui-content home" role="main">
             <div class="section">
                 <div class="profile">
-                    <div class="right"><a href="#editProfile"><img src="images/edit.png" style="height:30px; width:auto;" /></a></div>
+                    <div class="right"><a href="#edit_profile"><img src="images/edit.png" style="height:30px; width:auto;" /></a></div>
                     <div class="center"><img src="images/profiles/nick.png" /></div>
-                    <p>Nick Van Der Meulen</p>
+                    <p><span class="user_name">Please setup your account</span></p>
                 </div>
             </div>
             <div class="section">
@@ -72,28 +58,23 @@
                 <div class="clear-fix"></div>
             </div>
         </div>
-    </div>
-
-    <div data-role="page" id="editProfile" data-theme="b">
-        <div data-role="panel" id="friendsPanel" data-position="right" data-display="reveal" data-theme="b" class="ui-panel ui-panel-position-right ui-panel-display-reveal ui-body-b ui-panel-animate ui-panel-open">
+        <div data-role="panel" id="home_friendspanel" data-position="right" data-display="reveal" data-theme="b" class="ui-panel ui-panel-position-right ui-panel-display-reveal ui-body-b ui-panel-animate ui-panel-open">
             <div class="ui-panel-inner">
                 <ul class="friends">
                     <li>Search contacts</li>
-                    <li>Nick van der Meulen</li>
-                    <li>Leroy Zut</li>
-                    <li>Frank Eijben</li>
-                    <li>Brent van der Meulen</li>
                 </ul>
             </div>
         </div>
+    </div>
 
+    <div data-role="page" id="edit_profile" data-theme="b">
         <div data-role="header" class="header">
-            <div class="left"><img src="images/share.png" /></div>
-            <div class="right"><a href="#friendsPanel"><img src="images/friends.png" class="friends" /></a></div>
-            <div class="center"><img src="images/logo.png" class="logo" /></div>
+            <div class="left"><a href="#invite_friend"><img src="images/share.png" /></a></div>
+            <div class="right"><a href="#edit_friendspanel"><img src="images/friends.png" class="friends" /></a></div>
+            <div class="center"><a href="#home"><img src="images/logo.png" class="logo" /></a></div>
         </div>
 
-        <div data-role="content" class="ui-content" role="main">
+        <div data-role="content" class="ui-content home" role="main">
             <div class="section">
                 <div class="profile">
                     <div class="center"><img src="images/profiles/nick.png" /></div>
@@ -101,51 +82,277 @@
                 </div>
             </div>
 
-                <label>Name</label>
-                <input type="text" id="edit_name"/>
-                <label>House number</label>
-                <input type="text" id="edit_house_number" />
-                <label>Phone number</label>
-                <input type="text" id="edit_phone_number" />
-                <label>Mail</label>
-                <input type="text" id="edit_mail" />
-                <label>Private mail</label>
-                <input type="text" id="edit_private_mail" />
-                <label>Facebook</label>
-                <input type="text" id="edit_facebook" />
-                <label>Twitter</label>
-                <input type="text" id="edit_twitter" />
-                <label>Linkedin</label>
-                <input type="text" id="edit_linkedin" />
-                <label>Instagram</label>
-                <input type="text" id="edit_instagram" />
-                <label>Skype</label>
-                <input type="text" id="edit_skype" />
-                <label>Google+</label>
-                <input type="text" id="edit_google" />
-                <label>Pinterest</label>
-                <input type="text" id="edit_pinterest" />
-                <label>Uknown</label>
-                <input type="text" id="edit_unkown" />
-                <label>Soundcloud</label>
-                <input type="text" id="edit_soundcloud" />
-                <label>Steam</label>
-                <input type="text" id="edit_steam" />
-                <label>Playstation</label>
-                <input type="text" id="edit_playstation" />
-                <label>Xbox</label>
-                <input type="text" id="edit_xbox" />
-                <input type="submit" value="Save profile" />
+            <label>Name</label>
+            <input type="text" id="edit_name" />
+            <label>Private number</label>
+            <input type="text" id="edit_private_number" />
+            <label>Phone number</label>
+            <input type="text" id="edit_phone_number" />
+            <label>Mail</label>
+            <input type="text" id="edit_mail" />
+            <label>Private mail</label>
+            <input type="text" id="edit_private_mail" />
+            <label>Facebook</label>
+            <input type="text" id="edit_facebook" />
+            <label>Twitter</label>
+            <input type="text" id="edit_twitter" />
+            <label>Linkedin</label>
+            <input type="text" id="edit_linkedin" />
+            <label>Instagram</label>
+            <input type="text" id="edit_instagram" />
+            <label>Skype</label>
+            <input type="text" id="edit_skype" />
+            <label>Google+</label>
+            <input type="text" id="edit_googlePlus" />
+            <label>Pinterest</label>
+            <input type="text" id="edit_pinterest" />
+            <label>Uknown</label>
+            <input type="text" id="edit_unkown" />
+            <label>Soundcloud</label>
+            <input type="text" id="edit_soundcloud" />
+            <label>Steam</label>
+            <input type="text" id="edit_steam" />
+            <label>Playstation</label>
+            <input type="text" id="edit_playstation" />
+            <label>Xbox</label>
+            <input type="text" id="edit_xbox" />
+            <a id='edit_home_link' href="#home" style='display:none;'></a>
+            <input type="button" value="Save profile" onclick="editProfile()" />
+        </div>
 
+        <div data-role="panel" id="edit_friendspanel" data-position="right" data-display="reveal" data-theme="b" class="ui-panel ui-panel-position-right ui-panel-display-reveal ui-body-b ui-panel-animate ui-panel-open">
+            <div class="ui-panel-inner">
+                <ul class="friends">
+                    <li>Search contacts</li>
+                </ul>
+            </div>
         </div>
     </div>
 
+    <div data-role="page" id="invite_friend" data-theme="b">
+        <div data-role="header" class="header">
+            <div class="left"><a href="#invite_friend"><img src="images/share.png" /></a></div>
+            <div class="right"><a href="#invite_friend_friendspanel"><img src="images/friends.png" class="friends" /></a></div>
+            <div class="center"><a href="#home"><img src="images/logo.png" class="logo" /></a></div>
+        </div>
+
+        <div data-role="content" class="ui-content home" role="main">
+            <div class="section">
+                <div class="profile">
+                    <div class="center"><img src="images/profiles/nick.png" /></div>
+                    <p><span class="user_name">Please setup your account</span></p>
+                </div>
+            </div>
+            <p class="text_invite_friend">
+                Please enter the email address of the Forgather account you would like to share cards with.
+                <input type="text" id="invite_email" alt="Email" />
+                <input type="button" value="Share cards" onclick="inviteFriend()" />
+            </p>
+            <p class="disclaimer_invite_friend">
+                To finish the card sharing progress the recipient needs to accept your request first.
+            </p>
+        </div>
+
+        <div data-role="panel" id="invite_friend_friendspanel" data-position="right" data-display="reveal" data-theme="b" class="ui-panel ui-panel-position-right ui-panel-display-reveal ui-body-b ui-panel-animate ui-panel-open">
+            <div class="ui-panel-inner">
+                <ul class="friends">
+                    <li>Search contacts</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div data-role="page" id="show_friend" data-theme="b">
+        <div data-role="header" class="header">
+            <div class="left"><a href="#invite_friend"><img src="images/share.png" /></a></div>
+            <div class="right"><a href="#show_friend_friendspanel"><img src="images/friends.png" class="friends" /></a></div>
+            <div class="center"><a href="#home"><img src="images/logo.png" class="logo" /></a></div>
+        </div>
+
+        <div data-role="content" class="ui-content home" role="main">
+            <div class="section">
+                <div class="profile">
+                    <div class="center"><img src="images/profiles/nick.png" /></div>
+                    <p><span class="friend_name">Friend name</span></p>
+                </div>
+            </div>
+            <div class="section">
+                <p class="left">
+                    <img src="images/buttons/category_phone.png" />
+                </p>
+                <ul class="left">
+                    <li>
+                        <img src="images/buttons/category_phone_home.png" class="left" /><span class="left">+31 756 31 27 33</span>
+                    </li>
+                    <li>
+                        <img src="images/buttons/category_phone_mobile.png" class="left" /><span class="left">+31 654 61 70 68</span>
+                    </li>
+                </ul>
+                <div class="clear-fix"></div>
+            </div>
+            <div class="section">
+                <p class="left">
+                    <img src="images/buttons/category_contact.png" />
+                </p>
+                <ul class="left">
+                    <li>
+                        <img src="images/buttons/category_contact_one.png" class="left" /><span class="left">nick.van.der.meulen@hva.nl</span>
+                    </li>
+                    <li>
+                        <img src="images/buttons/category_contact_one.png" class="left" /><span class="left">nick.van.der.m@gmail.com</span>
+                    </li>
+                </ul>
+                <div class="clear-fix"></div>
+            </div>
+        </div>
+
+        <div data-role="panel" id="show_friend_friendspanel" data-position="right" data-display="reveal" data-theme="b" class="ui-panel ui-panel-position-right ui-panel-display-reveal ui-body-b ui-panel-animate ui-panel-open">
+            <div class="ui-panel-inner"> 
+                <a class='hide_panel' data-rel="close" href="#show_friend" style='display:none;'></a>
+                <ul class="friends">
+                    <li>Search contacts</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/database_connection.js"></script>
     <script>
-        var userID;
+        var profile;
+        var friends;
+        var currentPage;
+
         $(document).ready(function () {
-            userID = window.localStorage.getItem("userID");
-            console.log(userID);
+            profile = JSON.parse(window.localStorage.getItem('profile'));
+
+            if (profile.profileID != 0) {
+                setProfileData();
+            }
+            getFriends();
+
+            $("input:text, input:password").each(function () {
+                $(this).val($(this).attr("alt"));
+            });
+
+            // clear input.text on focus, if still in default
+            $("input:text, input:password").focus(function () {
+                if ($(this).val() == $(this).attr("alt")) {
+                    $(this).val("");
+                }
+            });
+
+            // if field is empty afterward, add text again
+            $("input:text, input:password").blur(function () {
+                if ($(this).val() == "") {
+                    $(this).val($(this).attr("alt"));
+                }
+            });
         });
+
+        function setProfileData() {
+            //home
+            $('.user_name').text(profile.name);
+
+            //edit
+            $('#edit_name').val(profile.name);
+            $('#edit_private_number').val(profile.privateNumber);
+            $('#edit_phone_number').val(profile.phoneNumber);
+            $('#edit_mail').val(profile.workMail);
+            $('#edit_private_mail').val(profile.privateMail);
+            $('#edit_facebook').val(profile.facebook);
+            $('#edit_twitter').val(profile.twitter);
+            $('#edit_linkedin').val(profile.linkedin);
+            $('#edit_instagram').val(profile.instagram);
+            $('#edit_skype').val(profile.skype);
+            $('#edit_googlePlus').val(profile.googlePlus);
+            $('#edit_pinterest').val(profile.pinterest);
+            $('#edit_unkown').val(profile.unknown);
+            $('#edit_soundcloud').val(profile.soundcloud);
+            $('#edit_steam').val(profile.steam);
+            $('#edit_playstation').val(profile.playstation);
+            $('#edit_xbox').val(profile.xbox);
+        }
+
+        function editProfile() {
+            profile.name = $('#edit_name').val();
+            profile.privateNumber = $('#edit_private_number').val();
+            profile.phoneNumber = $('#edit_phone_number').val();
+            profile.workMail = $('#edit_mail').val();
+            profile.privateMail = $('#edit_private_mail').val();
+            profile.facebook = $('#edit_facebook').val();
+            profile.twitter = $('#edit_twitter').val();
+            profile.linkedin = $('#edit_linkedin').val();
+            profile.instagram = $('#edit_instagram').val();
+            profile.skype = $('#edit_skype').val();
+            profile.googlePlus = $('#edit_googlePlus').val();
+            profile.pinterest = $('#edit_pinterest').val();
+            profile.unknown = $('#edit_unkown').val();
+            profile.soundcloud = $('#edit_soundcloud').val();
+            profile.steam = $('#edit_steam').val();
+            profile.playstation = $('#edit_playstation').val();
+            profile.xbox = $('#edit_xbox').val();
+
+            $.ajax({
+                url: url + 'api/profile/postprofile',
+                type: 'POST',
+                async: false,
+                contentType: 'application/json',
+                data: JSON.stringify(profile),
+                success: function (data) {
+                    profile = data;
+                    window.localStorage.setItem('profile', JSON.stringify(data));
+                    setProfileData();
+                    $("#edit_home_link").click();
+                },
+                error: function (e) {
+                    alert("Something went wrong.");
+                },
+                dataType: 'json',
+                contentType: "application/json"
+            });
+        }
+
+        function getFriends() {
+            $.ajax({
+                datatype: 'json',
+                url: url + "/api/friend/getfriends?userID=" + profile.userID,
+                data: null,
+                success: function (data) {
+                    friends = data;
+                    $('.friends .user').remove();
+                    $.each(friends, function (index, value) {
+                        $(".friends").append('<li class="user" onclick="showFriend(' + index + ')">' + value.name + '</li>');
+                    });
+                },
+                error: function (e) {
+                    alert("Could not fetch friends.");
+                }
+            });
+        }
+
+        function showFriend(number) {
+            friend = friends[number];
+            $('.friend_name').text(friend.name);
+            $(".hide_panel").click();
+        }
+
+        function inviteFriend() {
+            $.ajax({
+                url: url + 'api/friend/invite?userID=' + profile.userID + '&friendName=' + $("#invite_email").val(),
+                type: 'POST',
+                async: false,
+                contentType: 'application/json',
+                data: null,
+                success: function (e) {
+                    alert("Friend has been invited and auto accepted.");
+                    getFriends();
+                },
+                error: function (e) {
+                    console.log(e);
+                    alert("The user was not found.");
+                }
+            });
+        }
     </script>
 </body>
 </html>

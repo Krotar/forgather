@@ -35,10 +35,8 @@
         </div>
     </div>
 
+    <script src="scripts/database_connection.js"></script>
     <script>
-        //var url = "http://localhost:57320/";
-        var url = "http://forgather.azurewebsites.net/";
-
         $(document).ready(function () {
             // set all input.text default value according to alt attribute
             $("input:text, input:password").each(function () {
@@ -73,7 +71,7 @@
                 contentType: 'application/json',
                 data: JSON.stringify(user),
                 success: function (data) {
-                    window.localStorage.setItem("userID", data.userID);
+                    window.localStorage.setItem('profile', JSON.stringify(data));
                     window.location.href = "./home.html#home";
                 },
                 error: function (e) {
@@ -82,17 +80,6 @@
                 dataType: 'json',
                 contentType: "application/json"
             });
-
-            function alertDismissed() {
-                // do something
-            }
-
-            navigator.notification.alert(
-                'You are the winner!',  // message
-                alertDismissed,         // callback
-                'Game Over',            // title
-                'Done'                  // buttonName
-            )
         }
 
         function register() {
