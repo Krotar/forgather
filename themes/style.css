@@ -35,29 +35,33 @@
     }
 
     .header .left {
-        text-align: left;
         float: left;
         width: 100px;
+        text-align: left;
     }
 
-        .header .left img {
+        .header .left a {
             margin-left: 10px;
         }
 
     .header .right {
-        text-align: right;
         float: right;
         width: 100px;
+
     }
 
-        .header .right img {
+        .header .right a {
             margin-right: 10px;
+            width: 30px;
+            display: inline-block;
+            text-align: center;
+            float: right;
         }
-
+    /*
         .header .right .menu {
             margin-right: 20px;
         }
-
+*/
     .header .center {
         text-align: center;
         margin: 0 auto;
