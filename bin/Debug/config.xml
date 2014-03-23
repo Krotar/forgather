@@ -4,12 +4,15 @@
   <description>
     Development version Forgather
   </description>
-  <icon src="logo.png"></icon>
   <icon src="/icons/android/icon-hdpi.png" gap:density="hdpi" gap:platform="android" />
   <icon src="/icons/android/icon-ldpi.png" gap:density="ldpi" gap:platform="android" />
   <icon src="/icons/android/icon-mdpi.png" gap:density="mdpi" gap:platform="android" />
   <icon src="/icons/android/icon-xhdpi.png" gap:density="xhdpi" gap:platform="android" />
   <icon src="/icons/android/icon-xxhdpi.png" gap:density="xxhdpi" gap:platform="android" />
+  <splash src="/icons/android/splash-hdpi.png" gap:density="hdpi" gap:platform="android" />
+  <splash src="/icons/android/splash-ldpi.png" gap:density="ldpi" gap:platform="android" />
+  <splash src="/icons/android/splash-mdpi.png" gap:density="mdpi" gap:platform="android" />
+  <splash src="/icons/android/splash-xhdpi.png" gap:density="xhdpi" gap:platform="android" />
   <author email="nicolanauwynck@hotmail.com">nicolanauwynck@hotmail.com</author>
   <access origin="*" />
   <preference name="phonegap-version" value="3.1.0" />

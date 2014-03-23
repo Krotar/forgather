@@ -37,17 +37,19 @@
     .header .left {
         float: left;
         width: 100px;
-        text-align: left;
     }
 
         .header .left a {
             margin-left: 10px;
+            width: 30px;
+            display: inline-block;
+            text-align: center;
+            float: left;
         }
 
     .header .right {
         float: right;
         width: 100px;
-
     }
 
         .header .right a {
@@ -57,11 +59,7 @@
             text-align: center;
             float: right;
         }
-    /*
-        .header .right .menu {
-            margin-right: 20px;
-        }
-*/
+
     .header .center {
         text-align: center;
         margin: 0 auto;

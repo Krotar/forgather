@@ -38,6 +38,9 @@
     <Content Include="images\menu.png">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="images\scan.png">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="logo.png">
       <SubType>Content</SubType>
     </Content>
