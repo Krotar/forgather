@@ -53,10 +53,8 @@ function inviteFriend() {
         data: null,
         success: function (e) {
             alert("Friend has been invited.");
-            getFriends();
         },
         error: function (e) {
-            console.log(e);
             alert("The user was not found.");
         }
     });
@@ -77,7 +75,7 @@ function acceptFriend() {
         },
         error: function (e) {
             console.log(e);
-            alert("The user was not found.");
+            alert("Something went wrong.");
         }
     });
 }
@@ -96,7 +94,7 @@ function declineFriend() {
         },
         error: function (e) {
             console.log(e);
-            alert("The user was not found.");
+            alert("Something went wrong.");
         }
     });
 }

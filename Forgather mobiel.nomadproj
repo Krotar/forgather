@@ -116,7 +116,7 @@
     <Content Include="scripts\jquery.mobile-1.4.2.min.js">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="themes\Forgather.css">
+    <Content Include="themes\forgather.css">
       <SubType>Content</SubType>
     </Content>
     <Content Include="themes\images\ajax-loader.gif">
