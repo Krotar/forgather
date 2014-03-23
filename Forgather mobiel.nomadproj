@@ -23,6 +23,21 @@
     <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="icons\android\splash-hdpi.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="icons\android\splash-ldpi.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="icons\android\splash-mdpi.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="icons\android\splash-xhdpi.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="images\menu.png">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="logo.png">
       <SubType>Content</SubType>
     </Content>
@@ -87,6 +102,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="scripts\database_connection.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="scripts\friend.js">
       <SubType>Content</SubType>
     </Content>
     <Content Include="scripts\jquery-1.10.2.min.js">
