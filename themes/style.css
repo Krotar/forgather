@@ -35,21 +35,33 @@
     }
 
     .header .left {
-        text-align: center;
+        text-align: left;
         float: left;
-        width: 50px;
+        width: 100px;
     }
 
+        .header .left img {
+            margin-left: 10px;
+        }
+
     .header .right {
-        text-align: center;
+        text-align: right;
         float: right;
-        width: 50px;
+        width: 100px;
     }
+
+        .header .right img {
+            margin-right: 10px;
+        }
+
+        .header .right .menu {
+            margin-right: 20px;
+        }
 
     .header .center {
         text-align: center;
         margin: 0 auto;
-        width: 50px;
+        width: 100px;
     }
 
 .home {
@@ -149,13 +161,15 @@ label {
 
         .friends li img {
             height: 45px;
-            float:left;
+            float: left;
         }
-        .friends li span{
-            float:left;
-            margin-top:14px;
-            margin-left:14px;
+
+        .friends li span {
+            float: left;
+            margin-top: 14px;
+            margin-left: 14px;
         }
+
 .show_friend_invited {
     text-align: center;
     display: none;

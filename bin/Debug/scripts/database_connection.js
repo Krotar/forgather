@@ -3,21 +3,8 @@
 
 var url;
 
-$.ajax({
-    datatype: 'json',
-    url: "http://localhost:57320/api/friend/getfriends?userID=5",
-    data: null,
-    async: false,
-    success: function (data) {
-        url = "http://localhost:57320/";
-    },
-    error: function (e) {
-        url = "http://forgather.azurewebsites.net/";
-    }
-});
-
 if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|IEMobile)/)) {
-    alert("device");
+    url = "http://forgather.azurewebsites.net/";
 } else {
-    alert("browser");
+    url = "http://localhost:57320/";
 }

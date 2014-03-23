@@ -146,3 +146,22 @@ label {
         border-bottom: 2px solid #e5e5e5;
         padding: 20px 0px 20px 20px;
     }
+
+        .friends li img {
+            height: 45px;
+            float:left;
+        }
+        .friends li span{
+            float:left;
+            margin-top:14px;
+            margin-left:14px;
+        }
+.show_friend_invited {
+    text-align: center;
+    display: none;
+}
+
+.show_friend_info {
+    text-align: center;
+    display: none;
+}
