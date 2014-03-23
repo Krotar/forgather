@@ -24,7 +24,7 @@ button,
 .ui-btn {
 	font-size: 1em;
 	line-height: 1.3;
-	 font-family: sans-serif /*{global-font-family}*/;
+	      font-family: sans-serif /*{global-font-family}*/;
 }
 legend,
 .ui-input-text input,
@@ -99,8 +99,8 @@ label.ui-btn {
 .ui-flipswitch.ui-corner-all,
 /* Count bubble */
 .ui-li-count {
-	-webkit-border-radius: .3125em /*{global-radii-buttons}*/;
-	border-radius: .3125em /*{global-radii-buttons}*/;
+	-webkit-border-radius: .2em /*{global-radii-buttons}*/;
+	border-radius: .2em /*{global-radii-buttons}*/;
 }
 /* Icon-only buttons */
 .ui-btn-icon-notext.ui-btn-corner-all,
@@ -286,13 +286,13 @@ html body .ui-group-theme-a a:active {
 html .ui-bar-a .ui-btn,
 html .ui-body-a .ui-btn,
 html body .ui-group-theme-a .ui-btn,
-html head + body .ui-btn.ui-btn-a,
+html head   body .ui-btn.ui-btn-a,
 /* Button visited */
 .ui-page-theme-a .ui-btn:visited,
 html .ui-bar-a .ui-btn:visited,
 html .ui-body-a .ui-btn:visited,
 html body .ui-group-theme-a .ui-btn:visited,
-html head + body .ui-btn.ui-btn-a:visited {
+html head   body .ui-btn.ui-btn-a:visited {
 	background-color: #894e2d /*{a-bup-background-color}*/;
 	border-color: #894e2d /*{a-bup-border}*/;
 	color: #ffffff /*{a-bup-color}*/;
@@ -303,8 +303,8 @@ html head + body .ui-btn.ui-btn-a:visited {
 html .ui-bar-a .ui-btn:hover,
 html .ui-body-a .ui-btn:hover,
 html body .ui-group-theme-a .ui-btn:hover,
-html head + body .ui-btn.ui-btn-a:hover {
-	background-color: #c26c3b /*{a-bhover-background-color}*/;
+html head   body .ui-btn.ui-btn-a:hover {
+	background-color: #9b552c /*{a-bhover-background-color}*/;
 	border-color: #c26c3b /*{a-bhover-border}*/;
 	color: #ffffff /*{a-bhover-color}*/;
 	text-shadow: 0 /*{a-bhover-shadow-x}*/ 0px /*{a-bhover-shadow-y}*/ 0 /*{a-bhover-shadow-radius}*/ #f3f3f3 /*{a-bhover-shadow-color}*/;
@@ -314,7 +314,7 @@ html head + body .ui-btn.ui-btn-a:hover {
 html .ui-bar-a .ui-btn:active,
 html .ui-body-a .ui-btn:active,
 html body .ui-group-theme-a .ui-btn:active,
-html head + body .ui-btn.ui-btn-a:active {
+html head   body .ui-btn.ui-btn-a:active {
 	background-color: #e2814a /*{a-bdown-background-color}*/;
 	border-color: #e2814a /*{a-bdown-border}*/;
 	color: #ffffff /*{a-bdown-color}*/;
@@ -325,7 +325,7 @@ html head + body .ui-btn.ui-btn-a:active {
 html .ui-bar-a .ui-btn.ui-btn-active,
 html .ui-body-a .ui-btn.ui-btn-active,
 html body .ui-group-theme-a .ui-btn.ui-btn-active,
-html head + body .ui-btn.ui-btn-a.ui-btn-active,
+html head   body .ui-btn.ui-btn-a.ui-btn-active,
 /* Active checkbox icon */
 .ui-page-theme-a .ui-checkbox-on:after,
 html .ui-bar-a .ui-checkbox-on:after,
@@ -362,14 +362,14 @@ html body .ui-group-theme-a .ui-radio-on:after,
 html .ui-bar-a .ui-btn:focus,
 html .ui-body-a .ui-btn:focus,
 html body .ui-group-theme-a .ui-btn:focus,
-html head + body .ui-btn.ui-btn-a:focus,
+html head   body .ui-btn.ui-btn-a:focus,
 /* Focus buttons and text inputs with div wrap */
 .ui-page-theme-a .ui-focus,
 html .ui-bar-a .ui-focus,
 html .ui-body-a .ui-focus,
 html body .ui-group-theme-a .ui-focus,
-html head + body .ui-btn-a.ui-focus,
-html head + body .ui-body-a.ui-focus {
+html head   body .ui-btn-a.ui-focus,
+html head   body .ui-body-a.ui-focus {
 	-webkit-box-shadow: 0 0 12px #c26c3b /*{a-active-background-color}*/;
 	-moz-box-shadow: 0 0 12px #c26c3b /*{a-active-background-color}*/;
 	box-shadow: 0 0 12px #c26c3b /*{a-active-background-color}*/;
@@ -399,7 +399,7 @@ html body .ui-group-theme-b .ui-bar-inherit {
 	background-color: #f9f9f9 /*{b-page-background-color}*/;
 	border-color: #eeeeee /*{b-page-border}*/;
 	color: #707070 /*{b-page-color}*/;
-	text-shadow: 0 /*{b-page-shadow-x}*/ 1px /*{b-page-shadow-y}*/ 0 /*{b-page-shadow-radius}*/ #f3f3f3 /*{b-page-shadow-color}*/;
+	text-shadow: 0 /*{b-page-shadow-x}*/ 0px /*{b-page-shadow-y}*/ 0 /*{b-page-shadow-radius}*/ #f3f3f3 /*{b-page-shadow-color}*/;
 }
 /* Body: Read-only lists, text inputs, collapsible content */
 .ui-body-b,
@@ -409,9 +409,9 @@ html .ui-body-b .ui-body-inherit,
 html body .ui-group-theme-b .ui-body-inherit,
 html .ui-panel-page-container-b {
 	background-color: #ffffff /*{b-body-background-color}*/;
-	border-color: #ffffff /*{b-body-border}*/;
+	border-color: #cbcbcb /*{b-body-border}*/;
 	color: #707070 /*{b-body-color}*/;
-	text-shadow: 0 /*{b-body-shadow-x}*/ 0px /*{b-body-shadow-y}*/ 0 /*{b-body-shadow-radius}*/ #f3f3f3 /*{b-body-shadow-color}*/;
+	text-shadow: 0 /*{b-body-shadow-x}*/ 0px /*{b-body-shadow-y}*/ 0 /*{b-body-shadow-radius}*/ #707070 /*{b-body-shadow-color}*/;
 }
 .ui-body-b {
 	border-width: 1px;
@@ -448,13 +448,13 @@ html body .ui-group-theme-b a:active {
 html .ui-bar-b .ui-btn,
 html .ui-body-b .ui-btn,
 html body .ui-group-theme-b .ui-btn,
-html head + body .ui-btn.ui-btn-b,
+html head   body .ui-btn.ui-btn-b,
 /* Button visited */
 .ui-page-theme-b .ui-btn:visited,
 html .ui-bar-b .ui-btn:visited,
 html .ui-body-b .ui-btn:visited,
 html body .ui-group-theme-b .ui-btn:visited,
-html head + body .ui-btn.ui-btn-b:visited {
+html head   body .ui-btn.ui-btn-b:visited {
 	background-color: #e2814a /*{b-bup-background-color}*/;
 	border-color: #e2814a /*{b-bup-border}*/;
 	color: #ffffff /*{b-bup-color}*/;
@@ -465,7 +465,7 @@ html head + body .ui-btn.ui-btn-b:visited {
 html .ui-bar-b .ui-btn:hover,
 html .ui-body-b .ui-btn:hover,
 html body .ui-group-theme-b .ui-btn:hover,
-html head + body .ui-btn.ui-btn-b:hover {
+html head   body .ui-btn.ui-btn-b:hover {
 	background-color: #894e2d /*{b-bhover-background-color}*/;
 	border-color: #894e2d /*{b-bhover-border}*/;
 	color: #ffffff /*{b-bhover-color}*/;
@@ -476,7 +476,7 @@ html head + body .ui-btn.ui-btn-b:hover {
 html .ui-bar-b .ui-btn:active,
 html .ui-body-b .ui-btn:active,
 html body .ui-group-theme-b .ui-btn:active,
-html head + body .ui-btn.ui-btn-b:active {
+html head   body .ui-btn.ui-btn-b:active {
 	background-color: #9f5933 /*{b-bdown-background-color}*/;
 	border-color: #9f5933 /*{b-bdown-border}*/;
 	color: #ffffff /*{b-bdown-color}*/;
@@ -487,7 +487,7 @@ html head + body .ui-btn.ui-btn-b:active {
 html .ui-bar-b .ui-btn.ui-btn-active,
 html .ui-body-b .ui-btn.ui-btn-active,
 html body .ui-group-theme-b .ui-btn.ui-btn-active,
-html head + body .ui-btn.ui-btn-b.ui-btn-active,
+html head   body .ui-btn.ui-btn-b.ui-btn-active,
 /* Active checkbox icon */
 .ui-page-theme-b .ui-checkbox-on:after,
 html .ui-bar-b .ui-checkbox-on:after,
@@ -524,18 +524,184 @@ html body .ui-group-theme-b .ui-radio-on:after,
 html .ui-bar-b .ui-btn:focus,
 html .ui-body-b .ui-btn:focus,
 html body .ui-group-theme-b .ui-btn:focus,
-html head + body .ui-btn.ui-btn-b:focus,
+html head   body .ui-btn.ui-btn-b:focus,
 /* Focus buttons and text inputs with div wrap */
 .ui-page-theme-b .ui-focus,
 html .ui-bar-b .ui-focus,
 html .ui-body-b .ui-focus,
 html body .ui-group-theme-b .ui-focus,
-html head + body .ui-btn-b.ui-focus,
-html head + body .ui-body-b.ui-focus {
+html head   body .ui-btn-b.ui-focus,
+html head   body .ui-body-b.ui-focus {
 	-webkit-box-shadow: 0 0 12px #894e2d /*{b-active-background-color}*/;
 	-moz-box-shadow: 0 0 12px #894e2d /*{b-active-background-color}*/;
 	box-shadow: 0 0 12px #894e2d /*{b-active-background-color}*/;
 }
+
+
+/* C
+-----------------------------------------------------------------------------------------------------------*/
+/* Bar: Toolbars, dividers, slider track */
+.ui-bar-c,
+.ui-page-theme-c .ui-bar-inherit,
+html .ui-bar-c .ui-bar-inherit,
+html .ui-body-c .ui-bar-inherit,
+html body .ui-group-theme-c .ui-bar-inherit {
+	background-color: #eeeeee /*{c-bar-background-color}*/;
+	border-color: #eeeeee /*{c-bar-border}*/;
+	color: #ffffff /*{c-bar-color}*/;
+	text-shadow: 0 /*{c-bar-shadow-x}*/ 0px /*{c-bar-shadow-y}*/ 0 /*{c-bar-shadow-radius}*/ #eeeeee /*{c-bar-shadow-color}*/;
+	font-weight: bold;
+}
+.ui-bar-c {
+	border-width: 1px;
+	border-style: solid;
+}
+/* Page and overlay */
+.ui-overlay-c,
+.ui-page-theme-c,
+.ui-page-theme-c .ui-panel-wrapper {
+	background-color: #eeeeee /*{c-page-background-color}*/;
+	border-color: #eeeeee /*{c-page-border}*/;
+	color: #707070 /*{c-page-color}*/;
+	text-shadow: 0 /*{c-page-shadow-x}*/ 0px /*{c-page-shadow-y}*/ 0 /*{c-page-shadow-radius}*/ #f3f3f3 /*{c-page-shadow-color}*/;
+}
+/* Body: Read-only lists, text inputs, collapsible content */
+.ui-body-c,
+.ui-page-theme-c .ui-body-inherit,
+html .ui-bar-c .ui-body-inherit,
+html .ui-body-c .ui-body-inherit,
+html body .ui-group-theme-c .ui-body-inherit,
+html .ui-panel-page-container-c {
+	background-color: #eeeeee /*{c-body-background-color}*/;
+	border-color: #cbcbcb /*{c-body-border}*/;
+	color: #707070 /*{c-body-color}*/;
+	text-shadow: 0 /*{c-body-shadow-x}*/ 0px /*{c-body-shadow-y}*/ 0 /*{c-body-shadow-radius}*/ #707070 /*{c-body-shadow-color}*/;
+}
+.ui-body-c {
+	border-width: 1px;
+	border-style: solid;
+}
+/* Links */
+.ui-page-theme-c a,
+html .ui-bar-c a,
+html .ui-body-c a,
+html body .ui-group-theme-c a {
+	color: #707070 /*{c-link-color}*/;
+	font-weight: bold;
+}
+.ui-page-theme-c a:visited,
+html .ui-bar-c a:visited,
+html .ui-body-c a:visited,
+html body .ui-group-theme-c a:visited {
+    color: #e2814a /*{c-link-visited}*/;
+}
+.ui-page-theme-c a:hover,
+html .ui-bar-c a:hover,
+html .ui-body-c a:hover,
+html body .ui-group-theme-c a:hover {
+	color: #e2814a /*{c-link-hover}*/;
+}
+.ui-page-theme-c a:active,
+html .ui-bar-c a:active,
+html .ui-body-c a:active,
+html body .ui-group-theme-c a:active {
+	color: #e2814a /*{c-link-active}*/;
+}
+/* Button up */
+.ui-page-theme-c .ui-btn,
+html .ui-bar-c .ui-btn,
+html .ui-body-c .ui-btn,
+html body .ui-group-theme-c .ui-btn,
+html head   body .ui-btn.ui-btn-c,
+/* Button visited */
+.ui-page-theme-c .ui-btn:visited,
+html .ui-bar-c .ui-btn:visited,
+html .ui-body-c .ui-btn:visited,
+html body .ui-group-theme-c .ui-btn:visited,
+html head   body .ui-btn.ui-btn-c:visited {
+	background-color: #eeeeee /*{c-bup-background-color}*/;
+	border-color: #cbcbcb /*{c-bup-border}*/;
+	color: #707070 /*{c-bup-color}*/;
+	text-shadow: 0 /*{c-bup-shadow-x}*/ 0px /*{c-bup-shadow-y}*/ 0 /*{c-bup-shadow-radius}*/ #f3f3f3 /*{c-bup-shadow-color}*/;
+}
+/* Button hover */
+.ui-page-theme-c .ui-btn:hover,
+html .ui-bar-c .ui-btn:hover,
+html .ui-body-c .ui-btn:hover,
+html body .ui-group-theme-c .ui-btn:hover,
+html head   body .ui-btn.ui-btn-c:hover {
+	background-color: #eeeeee /*{c-bhover-background-color}*/;
+	border-color: #cbcbcb /*{c-bhover-border}*/;
+	color: #707070 /*{c-bhover-color}*/;
+	text-shadow: 0 /*{c-bhover-shadow-x}*/ 0px /*{c-bhover-shadow-y}*/ 0 /*{c-bhover-shadow-radius}*/ #f3f3f3 /*{c-bhover-shadow-color}*/;
+}
+/* Button down */
+.ui-page-theme-c .ui-btn:active,
+html .ui-bar-c .ui-btn:active,
+html .ui-body-c .ui-btn:active,
+html body .ui-group-theme-c .ui-btn:active,
+html head   body .ui-btn.ui-btn-c:active {
+	background-color: #eeeeee /*{c-bdown-background-color}*/;
+	border-color: #cbcbcb /*{c-bdown-border}*/;
+	color: #707070 /*{c-bdown-color}*/;
+	text-shadow: 0 /*{c-bdown-shadow-x}*/ 0px /*{c-bdown-shadow-y}*/ 0 /*{c-bdown-shadow-radius}*/ #f3f3f3 /*{c-bdown-shadow-color}*/;
+}
+/* Active button */
+.ui-page-theme-c .ui-btn.ui-btn-active,
+html .ui-bar-c .ui-btn.ui-btn-active,
+html .ui-body-c .ui-btn.ui-btn-active,
+html body .ui-group-theme-c .ui-btn.ui-btn-active,
+html head   body .ui-btn.ui-btn-c.ui-btn-active,
+/* Active checkbox icon */
+.ui-page-theme-c .ui-checkbox-on:after,
+html .ui-bar-c .ui-checkbox-on:after,
+html .ui-body-c .ui-checkbox-on:after,
+html body .ui-group-theme-c .ui-checkbox-on:after,
+.ui-btn.ui-checkbox-on.ui-btn-c:after,
+/* Active flipswitch background */
+.ui-page-theme-c .ui-flipswitch-active,
+html .ui-bar-c .ui-flipswitch-active,
+html .ui-body-c .ui-flipswitch-active,
+html body .ui-group-theme-c .ui-flipswitch-active,
+html body .ui-flipswitch.ui-bar-c.ui-flipswitch-active,
+/* Active slider track */
+.ui-page-theme-c .ui-slider-track .ui-btn-active,
+html .ui-bar-c .ui-slider-track .ui-btn-active,
+html .ui-body-c .ui-slider-track .ui-btn-active,
+html body .ui-group-theme-c .ui-slider-track .ui-btn-active,
+html body div.ui-slider-track.ui-body-c .ui-btn-active {
+	background-color: #894e2d /*{c-active-background-color}*/;
+	border-color: #894e2d /*{c-active-border}*/;
+	color: #ffffff /*{c-active-color}*/;
+	text-shadow: 0 /*{c-active-shadow-x}*/ 0px /*{c-active-shadow-y}*/ 0 /*{c-active-shadow-radius}*/ #005599 /*{c-active-shadow-color}*/;
+}
+/* Active radio button icon */
+.ui-page-theme-c .ui-radio-on:after,
+html .ui-bar-c .ui-radio-on:after,
+html .ui-body-c .ui-radio-on:after,
+html body .ui-group-theme-c .ui-radio-on:after,
+.ui-btn.ui-radio-on.ui-btn-c:after {
+	border-color: #894e2d /*{c-active-background-color}*/;
+}
+/* Focus */
+.ui-page-theme-c .ui-btn:focus,
+html .ui-bar-c .ui-btn:focus,
+html .ui-body-c .ui-btn:focus,
+html body .ui-group-theme-c .ui-btn:focus,
+html head   body .ui-btn.ui-btn-c:focus,
+/* Focus buttons and text inputs with div wrap */
+.ui-page-theme-c .ui-focus,
+html .ui-bar-c .ui-focus,
+html .ui-body-c .ui-focus,
+html body .ui-group-theme-c .ui-focus,
+html head   body .ui-btn-c.ui-focus,
+html head   body .ui-body-c.ui-focus {
+	-webkit-box-shadow: 0 0 12px #894e2d /*{c-active-background-color}*/;
+	-moz-box-shadow: 0 0 12px #894e2d /*{c-active-background-color}*/;
+	box-shadow: 0 0 12px #894e2d /*{c-active-background-color}*/;
+}
+
+
 
 
 /* Structure */
@@ -576,4 +742,4 @@ button[disabled],
 	outline-width: 1px;
 	outline-style: auto;
 }
-			
+									

@@ -41,9 +41,9 @@
 
         .header .left a {
             margin-left: 10px;
-            width: 30px;
+            width: 32px;
             display: inline-block;
-            text-align: center;
+            text-align: left;
             float: left;
         }
 
@@ -56,7 +56,7 @@
             margin-right: 10px;
             width: 30px;
             display: inline-block;
-            text-align: center;
+            text-align: right;
             float: right;
         }
 

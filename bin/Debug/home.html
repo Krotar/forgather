@@ -16,7 +16,7 @@
 <body class="ui-mobile-viewport ui-overlay-c">
     <div data-role="page" id="show_user" data-theme="b">
         <div data-role="header" class="header">
-            <div class="left"><a href="#invite_friend"><img src="images/share.png" /></a><a><img src="images/scan.png" /></a></div>
+            <div class="left"><a href="#invite_friend"><img src="images/share.png" /></a><a href="#scan"><img src="images/scan.png" /></a></div>
             <div class="right"><a href="#show_user_panel"><img src="images/friends.png" class="friends" /></a><a href="#popupMenu" data-rel="popup" data-transition="fade"><img src="images/menu.png" /></a></div>
             <div class="center"><a href="#show_user"><img src="images/logo.png" class="logo" /></a></div>
 
@@ -213,6 +213,15 @@
         </div>
     </div>
 
+    <div data-role="scan" id="show_friend" data-theme="b">
+        <div data-role="header" class="header">
+            <div class="left"><a href="#invite_friend"><img src="images/share.png" /></a></div>
+            <div class="right"><a href="#show_friend_panel"><img src="images/friends.png" class="friends" /></a></div>
+            <div class="center"><a href="#show_user"><img src="images/logo.png" class="logo" /></a></div>
+        </div>
+    </div>
+
+    <script src="cordova.js"></script>
     <script src="scripts/database_connection.js"></script>
     <script>
         var profile;

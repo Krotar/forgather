@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Multi-page template</title>
     <link rel="stylesheet" href="./themes/style.css" />
-    <link rel="stylesheet" href="./themes/Forgather.css" />
+    <link rel="stylesheet" href="./themes/forgather.css" />
     <link rel="stylesheet" href="./themes/jquery.mobile.icons.min.css" />
     <link rel="stylesheet" href="./themes/jquery.mobile.structure-1.4.2.min.css" />
     <script src="./scripts/jquery-1.10.2.min.js"></script>
@@ -16,11 +16,11 @@
 <body class="ui-mobile-viewport ui-overlay-c">
     <div data-role="page" id="show_user" data-theme="b">
         <div data-role="header" class="header">
-            <div class="left"><a href="#invite_friend"><img src="images/share.png" /></a><a><img src="images/scan.png" /></a></div>
+            <div class="left"><a href="#invite_friend"><img src="images/share.png" /></a><a href="#scan"><img src="images/scan.png" /></a></div>
             <div class="right"><a href="#show_user_panel"><img src="images/friends.png" class="friends" /></a><a href="#popupMenu" data-rel="popup" data-transition="fade"><img src="images/menu.png" /></a></div>
             <div class="center"><a href="#show_user"><img src="images/logo.png" class="logo" /></a></div>
 
-            <div data-role="popup" id="popupMenu" data-theme="b">
+            <div data-role="popup" id="popupMenu" data-theme="c">
                 <ul data-role="listview" data-inset="true" style="min-width:210px;">
                     <li><a href="#" onclick="feedback()">Feedback</a></li>
                     <li><a href="#" onclick="logout()">Logout</a></li>
@@ -210,6 +210,14 @@
                     <li>Search contacts</li>
                 </ul>
             </div>
+        </div>
+    </div>
+
+    <div data-role="scan" id="show_friend" data-theme="b">
+        <div data-role="header" class="header">
+            <div class="left"><a href="#invite_friend"><img src="images/share.png" /></a></div>
+            <div class="right"><a href="#show_friend_panel"><img src="images/friends.png" class="friends" /></a></div>
+            <div class="center"><a href="#show_user"><img src="images/logo.png" class="logo" /></a></div>
         </div>
     </div>
 
