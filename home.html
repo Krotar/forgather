@@ -176,38 +176,18 @@
                     <p><span class="friend_name">Friend name</span></p>
                 </div>
             </div>
-            <div class="section">
-                <p class="left">
-                    <img src="images/buttons/category_phone.png" />
-                </p>
-                <ul class="left">
-                    <li>
-                        <img src="images/buttons/category_phone_home.png" class="left" /><span class="left">+31 756 31 27 33</span>
-                    </li>
-                    <li>
-                        <img src="images/buttons/category_phone_mobile.png" class="left" /><span class="left">+31 654 61 70 68</span>
-                    </li>
-                </ul>
-                <div class="clear-fix"></div>
+            <div class="show_friend_invited">
+                This person has requested to shair cards with you.
+                <input type="button" value="Accept" onclick="acceptFriend()" /><input type="button" value="Decline" onclick="declineFriend()" />
             </div>
-            <div class="section">
-                <p class="left">
-                    <img src="images/buttons/category_contact.png" />
-                </p>
-                <ul class="left">
-                    <li>
-                        <img src="images/buttons/category_contact_one.png" class="left" /><span class="left">nick.van.der.meulen@hva.nl</span>
-                    </li>
-                    <li>
-                        <img src="images/buttons/category_contact_one.png" class="left" /><span class="left">nick.van.der.m@gmail.com</span>
-                    </li>
-                </ul>
-                <div class="clear-fix"></div>
+            <div class="show_friend_info">
+                This person is now your friend and you will see the data from him.
             </div>
         </div>
 
         <div data-role="panel" id="show_friend_friendspanel" data-position="right" data-display="reveal" data-theme="b" class="ui-panel ui-panel-position-right ui-panel-display-reveal ui-body-b ui-panel-animate ui-panel-open">
-            <div class="ui-panel-inner"> 
+            <div class="ui-panel-inner">
+                <a class='show_friend_go_home' data-rel="close" href="#home" style='display:none;'></a>
                 <a class='hide_panel' data-rel="close" href="#show_friend" style='display:none;'></a>
                 <ul class="friends">
                     <li>Search contacts</li>
@@ -321,7 +301,14 @@
                     friends = data;
                     $('.friends .user').remove();
                     $.each(friends, function (index, value) {
-                        $(".friends").append('<li class="user" onclick="showFriend(' + index + ')">' + value.name + '</li>');
+                        if (value.friend != "From") {
+                            if (value.friend == "Accepted") {
+                                $(".friends").append('<li class="user" onclick="showFriend(' + value.userID + ')"><img src="images/profiles/nick.png"/><span>' + value.name + '</span><div class="clear-fix"></div></li>');
+                            } else {
+                                $(".friends").append('<li class="user" onclick="showFriend(' + value.userID + ')"><img src="images/profiles/nick.png"/><span>' + value.name + ' - Request</span><div class="clear-fix"></div></li>');
+                            }
+                            
+                        }
                     });
                 },
                 error: function (e) {
@@ -330,9 +317,24 @@
             });
         }
 
-        function showFriend(number) {
-            friend = friends[number];
-            $('.friend_name').text(friend.name);
+        function showFriend(userID) {
+            $('.show_friend_invited').css("display", "none");
+            $('.show_friend_info').css("display", "none");
+
+            $.each(friends, function (index, value) {
+                console.log(value);
+                if (value.userID == userID) {
+                    friend = value;
+                }
+            });
+            if (friend.friend == "Accepted") {
+                $('.friend_name').text(friend.name);
+                $('.show_friend_info').fadeIn();
+            }
+            if (friend.friend == "To") {
+                $('.friend_name').text(friend.name);
+                $('.show_friend_invited').fadeIn();
+            }
             $(".hide_panel").click();
         }
 
@@ -344,8 +346,47 @@
                 contentType: 'application/json',
                 data: null,
                 success: function (e) {
-                    alert("Friend has been invited and auto accepted.");
+                    alert("Friend has been invited.");
                     getFriends();
+                },
+                error: function (e) {
+                    console.log(e);
+                    alert("The user was not found.");
+                }
+            });
+        }
+
+        function acceptFriend() {
+            $.ajax({
+                url: url + 'api/friend/accept?userID=' + profile.userID + '&friendID=' + friend.userID,
+                type: 'POST',
+                async: false,
+                contentType: 'application/json',
+                data: null,
+                success: function (e) {
+                    alert("Friend has been accepted.");
+                    friend.friend = "Accepted";
+                    showFriend(friend.userID);
+                    getFriends();
+                },
+                error: function (e) {
+                    console.log(e);
+                    alert("The user was not found.");
+                }
+            });
+        }
+
+        function declineFriend() {
+            $.ajax({
+                url: url + 'api/friend/decline?userID=' + profile.userID + '&friendID=' + friend.userID,
+                type: 'POST',
+                async: false,
+                contentType: 'application/json',
+                data: null,
+                success: function (e) {
+                    alert("Friend has been declined.");
+                    getFriends();
+                    $(".show_friend_go_home").click();
                 },
                 error: function (e) {
                     console.log(e);
