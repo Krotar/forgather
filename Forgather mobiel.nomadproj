@@ -104,7 +104,7 @@
     <Content Include="index.html">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="scripts\database_connection.js">
+    <Content Include="scripts\database-connection.js">
       <SubType>Content</SubType>
     </Content>
     <Content Include="scripts\friend.js">
@@ -116,7 +116,7 @@
     <Content Include="scripts\jquery.mobile-1.4.2.min.js">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="themes\forgather.css">
+    <Content Include="themes\forgather2.css">
       <SubType>Content</SubType>
     </Content>
     <Content Include="themes\images\ajax-loader.gif">

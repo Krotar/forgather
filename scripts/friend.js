@@ -90,7 +90,7 @@ function declineFriend() {
         success: function (e) {
             alert("Friend has been declined.");
             getFriends();
-            $(".show_friend_show_user").click();
+            location.hash = "show_user";
         },
         error: function (e) {
             console.log(e);

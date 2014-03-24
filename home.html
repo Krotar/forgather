@@ -13,7 +13,7 @@
     <style type="text/css"></style>
 </head>
 
-<body class="ui-mobile-viewport ui-overlay-c">
+<body class="ui-mobile-viewport ui-overlay-b">
     <div data-role="page" id="show_user" data-theme="b">
         <div data-role="header" class="header">
             <div class="left"><a href="#invite_friend"><img src="images/share.png" /></a><a href="#scan"><img src="images/scan.png" /></a></div>
@@ -128,7 +128,6 @@
             <input type="text" id="edit_playstation" />
             <label>Xbox</label>
             <input type="text" id="edit_xbox" />
-            <a id='edit_user_show_user' href="#home" style='display:none;'></a>
             <input type="button" value="Save profile" onclick="editProfile()" />
         </div>
 
@@ -204,7 +203,6 @@
 
         <div data-role="panel" id="show_friend_panel" data-position="right" data-display="reveal" data-theme="b" class="ui-panel ui-panel-position-right ui-panel-display-reveal ui-body-b ui-panel-animate ui-panel-open">
             <div class="ui-panel-inner">
-                <a class='show_friend_show_user' data-rel="close" href="#show_user" style='display:none;'></a>
                 <a class='show_friend_hide_panel' data-rel="close" href="#show_friend" style='display:none;'></a>
                 <ul class="friends">
                     <li>Search contacts</li>
@@ -221,7 +219,7 @@
         </div>
     </div>
 
-    <script src="scripts/database_connection.js"></script>
+    <script src="scripts/database-connection.js"></script>
     <script>
         var profile;
         var friends;
@@ -313,10 +311,10 @@
                 contentType: 'application/json',
                 data: JSON.stringify(profile),
                 success: function (data) {
+                    location.hash = "show_user";
                     profile = data;
                     window.localStorage.setItem('profile', JSON.stringify(data));
                     setProfileData();
-                    $("#edit_user_show_user").click();
                 },
                 error: function (e) {
                     alert("Something went wrong.");
