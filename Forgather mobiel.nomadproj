@@ -23,6 +23,12 @@
     <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="logo.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="icons\android\icon-xxhdpi.png">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="icons\android\splash-hdpi.png">
       <SubType>Content</SubType>
     </Content>
@@ -41,9 +47,6 @@
     <Content Include="images\scan.png">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="logo.png">
-      <SubType>Content</SubType>
-    </Content>
     <Content Include="config.xml">
       <SubType>Content</SubType>
     </Content>
@@ -51,9 +54,6 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="cordova.js">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="icons\android\icon-xxhdpi.png">
       <SubType>Content</SubType>
     </Content>
     <Content Include="icons\android\icon-hdpi.png">
