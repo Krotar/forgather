@@ -1,6 +1,6 @@
 ﻿<html class="ui-mobile">
 <head>
-    <!--http://themeroller.jquerymobile.com/?ver=1.4.2&style_id=20140324-14-->
+    <!--http://themeroller.jquerymobile.com/?ver=1.4.2&style_id=20140324-21-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Multi-page template</title>
     <link rel="stylesheet" href="./themes/reset.css" />
@@ -73,7 +73,7 @@
                 data: JSON.stringify(user),
                 success: function (data) {
                     window.localStorage.setItem('profile', JSON.stringify(data));
-                    window.location.href = "./home.html#home";
+                    window.location.href = "./home.html#show_user";
                 },
                 error: function (e) {
                     alert("Wrong credentials.");
