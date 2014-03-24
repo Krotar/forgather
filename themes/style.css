@@ -183,11 +183,13 @@ label {
     display: none;
 }
 
+/*Aangepaste UI stukken*/
 .ui-overlay-shadow {
-    -webkit-box-shadow: none !important;
-    box-shadow: none !important;
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
 
 .ui-body-c{
-    border-top:0px solid white !important;
+    border-top:0px solid white;
+    border-bottom:0px solid white;
 }
