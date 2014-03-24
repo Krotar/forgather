@@ -9,9 +9,9 @@
             $.each(friends, function (index, value) {
                 if (value.friend != "From") {
                     if (value.friend == "Accepted") {
-                        $(".friends").append('<li class="user"><a href="#show_friend" data-rel="close" onclick="showFriend(' + value.userID + ')"><img src="images/profiles/nick.png"/><span>' + value.name + '</span><div class="clear-fix"></div></a></li>');
+                        $(".friends").append('<li class="user"><a href="#show_friend" data-rel="close" data-transition="none" onclick="showFriend(' + value.userID + ')"><img src="images/profiles/nick.png"/><span>' + value.name + '</span><div class="clear-fix"></div></a></li>');
                     } else {
-                        $(".friends").append('<li class="user"><a href="#show_friend" data-rel="close" onclick="showFriend(' + value.userID + ')"><img src="images/profiles/nick.png"/><span>' + value.name + ' - Request</span><div class="clear-fix"></div></a></li>');
+                        $(".friends").append('<li class="user"><a href="#show_friend" data-rel="close" data-transition="none" onclick="showFriend(' + value.userID + ')"><img src="images/profiles/nick.png"/><span>' + value.name + ' - Request</span><div class="clear-fix"></div></a></li>');
                     }
                 }
             });
