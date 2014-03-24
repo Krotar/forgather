@@ -160,34 +160,48 @@ label {
     padding: 0px;
 }
 
+
     .friends li a {
         border-bottom: 2px solid #e5e5e5;
         display: block;
-        padding: 20px 0px 20px 20px;
+        padding: 20px 15px 20px 15px;
         cursor: pointer;
         font-weight: normal;
         text-decoration: none;
+        font-size: 15px;
     }
 
-        .friends li a:hover {
-            color: #707070; /*{b-page-color}*/
-        }
-
-        .friends li a:visited {
-            color: #707070; /*{b-page-color}*/
-        }
-
-        .friends li a img {
+        .friends li a > img {
             height: 45px;
             float: left;
+            margin-right: 10px;
         }
 
         .friends li a span {
             float: left;
             margin-top: 14px;
-            margin-left: 14px;
         }
 
+        .friends li a:hover {
+            color: #707070;
+        }
+
+        .friends li a:visited {
+            color: #707070;
+        }
+
+    .friends .user a {
+        padding: 15px 15px 15px 15px;
+    }
+
+        .friends .user a .request {
+            float: right;
+        }
+
+            .friends .user a .request img {
+                height: 20px;
+                margin-left: 5px;
+            }
 
 .show_friend_invited {
     text-align: center;
@@ -209,3 +223,12 @@ label {
     border-top: 0px solid white;
     border-bottom: 0px solid white;
 }
+
+#edit_user .ui-popup-container {
+    width: 100% !important;
+}
+
+    #edit_user .ui-popup-container .ui-btn, #edit_user .ui-popup-container .ui-li-divider {
+        text-align: center;
+        font-size: 18px;
+    }

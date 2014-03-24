@@ -11,7 +11,7 @@
                     if (value.friend == "Accepted") {
                         $(".friends").append('<li class="user"><a href="#show_friend" data-rel="close" data-transition="none" onclick="showFriend(' + value.userID + ')"><img src="images/profiles/nick.png"/><span>' + value.name + '</span><div class="clear-fix"></div></a></li>');
                     } else {
-                        $(".friends").append('<li class="user"><a href="#show_friend" data-rel="close" data-transition="none" onclick="showFriend(' + value.userID + ')"><img src="images/profiles/nick.png"/><span>' + value.name + ' - Request</span><div class="clear-fix"></div></a></li>');
+                        $(".friends").append('<li class="user"><a href="#show_friend" data-rel="close" data-transition="none" onclick="showFriend(' + value.userID + ')"><img src="images/profiles/nick.png"/><span>' + value.name + '</span><span class="request"><img src="images/accept_friend.png" onclick="acceptFriend(' + value.userID + ')"/><img src="images/decline_friend.png"  onclick="declineFriend(' + value.userID + ')"/></span><div class="clear-fix"></div></a></li>');
                     }
                 }
             });
@@ -58,9 +58,9 @@ function inviteFriend() {
     });
 }
 
-function acceptFriend() {
+function acceptFriend(friendID) {
     $.ajax({
-        url: url + 'api/friend/accept?userID=' + profile.userID + '&friendID=' + friend.userID,
+        url: url + 'api/friend/accept?userID=' + profile.userID + '&friendID=' + friendID,
         type: 'POST',
         async: false,
         contentType: 'application/json',
@@ -78,9 +78,9 @@ function acceptFriend() {
     });
 }
 
-function declineFriend() {
+function declineFriend(friendID) {
     $.ajax({
-        url: url + 'api/friend/decline?userID=' + profile.userID + '&friendID=' + friend.userID,
+        url: url + 'api/friend/decline?userID=' + profile.userID + '&friendID=' + friendID,
         type: 'POST',
         async: false,
         contentType: 'application/json',

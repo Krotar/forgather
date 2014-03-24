@@ -92,42 +92,37 @@
                     <p>Edit your profile</p>
                 </div>
             </div>
+            <div class="section">
+                Adress
 
-            <label>Name</label>
-            <input type="text" id="edit_name" />
-            <label>Private number</label>
-            <input type="text" id="edit_private_number" />
-            <label>Phone number</label>
-            <input type="text" id="edit_phone_number" />
-            <label>Mail</label>
-            <input type="text" id="edit_mail" />
-            <label>Private mail</label>
-            <input type="text" id="edit_private_mail" />
-            <label>Facebook</label>
-            <input type="text" id="edit_facebook" />
-            <label>Twitter</label>
-            <input type="text" id="edit_twitter" />
-            <label>Linkedin</label>
-            <input type="text" id="edit_linkedin" />
-            <label>Instagram</label>
-            <input type="text" id="edit_instagram" />
-            <label>Skype</label>
-            <input type="text" id="edit_skype" />
-            <label>Google+</label>
-            <input type="text" id="edit_googlePlus" />
-            <label>Pinterest</label>
-            <input type="text" id="edit_pinterest" />
-            <label>Uknown</label>
-            <input type="text" id="edit_unkown" />
-            <label>Soundcloud</label>
-            <input type="text" id="edit_soundcloud" />
-            <label>Steam</label>
-            <input type="text" id="edit_steam" />
-            <label>Playstation</label>
-            <input type="text" id="edit_playstation" />
-            <label>Xbox</label>
-            <input type="text" id="edit_xbox" />
-            <input type="button" value="Save profile" onclick="editProfile()" />
+                <a href="#edit_user_adress_popup" data-rel="popup" data-transition="none" id="eenrandomlink" class="ui-btn" data-position-to="window">Edit adress details</a>
+                <div data-role="popup" id="edit_user_adress_popup" data-overlay-theme="b" data-theme="b">
+                    <ul data-role="listview" data-inset="true" style="min-width:210px;">
+                        <li data-role="list-divider">Contact</li>
+                        <li><input type="text" alt="Street" /></li>
+                        <li><input type="text" alt="Street number" /></li>
+                        <li><input type="text" alt="Zip code" /></li>
+                        <li><input type="text" alt="City" /></li>
+                        <li><input type="text" alt="Country" /></li>
+                        <li><a data-rel="back" class="ui-btn" onclick="saveProfile()">Save</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="section">
+                Contact
+
+                <a href="#edit_user_contact" data-rel="popup" data-transition="none" id="eenrandomlink" class="ui-btn" data-position-to="window">Edit contact details</a>
+                <div data-role="popup" id="edit_user_contact" data-overlay-theme="b" data-theme="b">
+                    <ul data-role="listview" data-inset="true" style="min-width:210px;">
+                        <li data-role="list-divider">Contact</li>
+                        <li><input type="text" alt="Private number" id="edit_private_number" /></li>
+                        <li><input type="text" alt="Work number" id="edit_work_number" /></li>
+                        <li><input type="text" alt="Private mail" id="edit_private_mail" /></li>
+                        <li><input type="text" alt="Work mail" id="edit_work_mail" /></li>
+                        <li><a data-rel="back" class="ui-btn" onclick="saveProfile()">Save</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
         <div data-role="panel" id="edit_user_panel" data-position="right" data-display="reveal" data-theme="b" class="ui-panel ui-panel-position-right ui-panel-display-reveal ui-body-b ui-panel-animate ui-panel-open">
@@ -222,6 +217,7 @@
             }
             getFriends();
 
+            
             $("input:text, input:password").each(function () {
                 $(this).val($(this).attr("alt"));
             });
@@ -257,10 +253,10 @@
 
             //edit
             $('#edit_name').val(profile.name);
-            $('#edit_private_number').val(profile.privateNumber);
-            $('#edit_phone_number').val(profile.phoneNumber);
-            $('#edit_mail').val(profile.workMail);
-            $('#edit_private_mail').val(profile.privateMail);
+            $('#edit_private_number').attr("alt", profile.privateNumber);
+            $('#edit_work_number').attr("alt", profile.workNumber);
+            $('#edit_private_mail').attr("alt", profile.privateMail);
+            $('#edit_work_mail').attr("alt", profile.workMail);
             $('#edit_facebook').val(profile.facebook);
             $('#edit_twitter').val(profile.twitter);
             $('#edit_linkedin').val(profile.linkedin);
@@ -275,12 +271,12 @@
             $('#edit_xbox').val(profile.xbox);
         }
 
-        function editProfile() {
-            profile.name = $('#edit_name').val();
+        function saveProfile() {
+            //profile.name = $('#edit_name').val();
             profile.privateNumber = $('#edit_private_number').val();
-            profile.phoneNumber = $('#edit_phone_number').val();
-            profile.workMail = $('#edit_mail').val();
+            profile.workNumber = $('#edit_work_number').val();
             profile.privateMail = $('#edit_private_mail').val();
+            profile.workMail = $('#edit_work_mail').val();
             profile.facebook = $('#edit_facebook').val();
             profile.twitter = $('#edit_twitter').val();
             profile.linkedin = $('#edit_linkedin').val();
@@ -293,6 +289,8 @@
             profile.steam = $('#edit_steam').val();
             profile.playstation = $('#edit_playstation').val();
             profile.xbox = $('#edit_xbox').val();
+
+            console.log(profile);
 
             $.ajax({
                 url: url + 'api/profile/postprofile',
