@@ -4,25 +4,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Multi-page template</title>
-    <link rel="stylesheet" href="./themes/style.css" />
     <link rel="stylesheet" href="./themes/forgather.css" />
+    <link rel="stylesheet" href="./themes/style.css" />
     <link rel="stylesheet" href="./themes/jquery.mobile.icons.min.css" />
     <link rel="stylesheet" href="./themes/jquery.mobile.structure-1.4.2.min.css" />
     <script src="./scripts/jquery-1.10.2.min.js"></script>
     <script src="./scripts/jquery.mobile-1.4.2.min.js"></script>
-    <style type="text/css"></style>
 </head>
 
 <body class="ui-mobile-viewport ui-overlay-b">
     <div data-role="page" id="show_user" data-theme="b">
         <div data-role="header" class="header">
             <div class="left"><a href="#invite_friend" data-transition="none"><img src="images/share.png" /></a><a href="#scan"><img src="images/scan.png" /></a></div>
-            <div class="right"><a href="#show_user_panel" data-transition="none"><img src="images/friends.png" class="friends" /></a><a href="#popupMenu" data-rel="popup" data-transition="fade"><img src="images/menu.png" /></a></div>
+            <div class="right"><a href="#show_user_panel" data-transition="none"><img src="images/friends.png" class="friends" /></a><a href="#show_user_menu" data-rel="popup" data-transition="fade"><img src="images/menu.png" /></a></div>
             <div class="center"><a href="#show_user" data-transition="none"><img src="images/logo.png" class="logo" /></a></div>
 
-            <div data-role="popup" id="popupMenu" data-theme="c" style="top:30px;">
+            <div data-role="popup" id="show_user_menu" data-theme="c" style="top:29px;">
                 <ul data-role="listview" data-inset="false" data-position-to="window" style="min-width:210px;">
-                    <li data-icon="false"><a href="#" onclick="feedback()">Feedback</a></li>
+                    <li data-icon="false"><a href="#" onclick="feedback()" style="border-top:0px">Feedback</a></li>
                     <li data-icon="false"><a href="#" onclick="logout()">Logout</a></li>
                 </ul>
             </div>
@@ -73,7 +72,7 @@
         <div data-role="panel" id="show_user_panel" data-position="right" data-display="reveal" data-theme="b" class="ui-panel ui-panel-position-right ui-panel-display-reveal ui-body-b ui-panel-animate ui-panel-open">
             <div class="ui-panel-inner">
                 <ul class="friends">
-                    <li>Search contacts</li>
+                    <li><a onclick="alert('soon')">Search contacts</a></li>
                 </ul>
             </div>
         </div>
@@ -134,7 +133,7 @@
         <div data-role="panel" id="edit_user_panel" data-position="right" data-display="reveal" data-theme="b" class="ui-panel ui-panel-position-right ui-panel-display-reveal ui-body-b ui-panel-animate ui-panel-open">
             <div class="ui-panel-inner">
                 <ul class="friends">
-                    <li>Search contacts</li>
+                    <li><a onclick="alert('soon')">Search contacts</a></li>
                 </ul>
             </div>
         </div>
@@ -167,7 +166,7 @@
         <div data-role="panel" id="invite_friend_panel" data-position="right" data-display="reveal" data-theme="b" class="ui-panel ui-panel-position-right ui-panel-display-reveal ui-body-b ui-panel-animate ui-panel-open">
             <div class="ui-panel-inner">
                 <ul class="friends">
-                    <li>Search contacts</li>
+                    <li><a onclick="alert('soon')">Search contacts</a></li>
                 </ul>
             </div>
         </div>
@@ -203,9 +202,8 @@
 
         <div data-role="panel" id="show_friend_panel" data-position="right" data-display="reveal" data-theme="b" class="ui-panel ui-panel-position-right ui-panel-display-reveal ui-body-b ui-panel-animate ui-panel-open">
             <div class="ui-panel-inner">
-                <a href="#show_friend" data-transition="none" data-rel="close" class='show_friend_hide_panel' style='display:none;'></a>
                 <ul class="friends">
-                    <li>Search contacts</li>
+                    <li><a onclick="alert('soon')">Search contacts</a></li>
                 </ul>
             </div>
         </div>
@@ -248,8 +246,8 @@
         }
 
         function logout() {
-            var profile = null;
-            var friends = [];
+            profile = null;
+            friends = [];
             window.location.href = "./index.html#login";
         }
 
