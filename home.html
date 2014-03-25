@@ -41,33 +41,9 @@
             <div data-role="popup" id="show_user_image" data-overlay-theme="b" data-theme="b" data-corners="false">
                 <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="images/profiles/nick.png" style="max-height:512px;" alt="profile">
             </div>
-            <div class="section">
-                <p class="left">
-                    <img src="images/buttons/category_phone.png" />
-                </p>
-                <ul class="left">
-                    <li>
-                        <img src="images/buttons/category_phone_home.png" class="left" /><span class="left">+31 756 31 27 33</span>
-                    </li>
-                    <li>
-                        <img src="images/buttons/category_phone_mobile.png" class="left" /><span class="left">+31 654 61 70 68</span>
-                    </li>
-                </ul>
-                <div class="clear-fix"></div>
-            </div>
-            <div class="section">
-                <p class="left">
-                    <img src="images/buttons/category_contact.png" />
-                </p>
-                <ul class="left">
-                    <li>
-                        <img src="images/buttons/category_contact_one.png" class="left" /><span class="left">nick.van.der.meulen@hva.nl</span>
-                    </li>
-                    <li>
-                        <img src="images/buttons/category_contact_one.png" class="left" /><span class="left">nick.van.der.m@gmail.com</span>
-                    </li>
-                </ul>
-                <div class="clear-fix"></div>
+
+            <div id="show_user_container">
+
             </div>
         </div>
         <div data-role="panel" id="show_user_panel" data-position="right" data-display="reveal" data-theme="b" class="ui-panel ui-panel-position-right ui-panel-display-reveal ui-body-b ui-panel-animate ui-panel-open">
@@ -87,42 +63,47 @@
         </div>
 
         <div data-role="content" class="ui-content home" role="main">
-            <div class="section">
+            <div class="section profile">
                 <div class="profile">
                     <div class="center"><img src="images/profiles/nick.png" /></div>
                     <p>Edit your profile</p>
                 </div>
             </div>
 
-            <div class="section">
-                Adress
-                <a href="#edit_user_adress_popup" data-rel="popup" data-transition="none" id="eenrandomlink" class="ui-btn" data-position-to="window">Edit adress details</a>
-                <div data-role="popup" id="edit_user_adress_popup" data-overlay-theme="b" data-theme="b">
-                    <ul data-role="listview" data-inset="true" style="min-width:210px;">
-                        <li data-role="list-divider">Contact</li>
-                        <li><input type="text" alt="Street" /></li>
-                        <li><input type="text" alt="Street number" /></li>
-                        <li><input type="text" alt="Zip code" /></li>
-                        <li><input type="text" alt="City" /></li>
-                        <li><input type="text" alt="Country" /></li>
-                        <li><a data-rel="back" class="ui-btn" onclick="saveProfile()">Save</a></li>
-                    </ul>
-                </div>
+            <div id="edit_user_container">
+
             </div>
 
             <div class="section">
-                Contact
-                <a href="#edit_user_contact" data-rel="popup" data-transition="none" id="eenrandomlink" class="ui-btn" data-position-to="window">Edit contact details</a>
-                <div data-role="popup" id="edit_user_contact" data-overlay-theme="b" data-theme="b">
-                    <ul data-role="listview" data-inset="true" style="min-width:210px;">
-                        <li data-role="list-divider">Contact</li>
-                        <li><input type="text" alt="Private number" id="privateNumber" /></li>
-                        <li><input type="text" alt="Work number" id="workNumber" /></li>
-                        <li><input type="text" alt="Private mail" id="privateMail" /></li>
-                        <li><input type="text" alt="Work mail" id="workMail" /></li>
-                        <li><a data-rel="back" class="ui-btn" onclick="saveProfile()">Save</a></li>
-                    </ul>
-                </div>
+                <a href="#edit_user_field" data-rel="popup" data-transition="none" class="ui-btn" data-position-to="window">Add new field</a>
+            </div>
+
+            <div data-role="popup" id="edit_user_field" data-overlay-theme="b" data-theme="b">
+                <ul data-role="listview" data-inset="true" style="min-width:210px;">
+                    <li data-role="list-divider">Select field</li>
+                    <li data-rel=""><a data-rel="back" onclick="addField('contact')" data-role="none">Contact</a></li>
+                    <li><a data-rel="back" onclick="addField('social')" data-role="none">Social</a></li>
+                </ul>
+            </div>
+
+            <div data-role="popup" id="edit_user_contact" data-overlay-theme="b" data-theme="b">
+                <ul data-role="listview" data-inset="true" style="min-width:210px;">
+                    <li data-role="list-divider">Contact</li>
+                    <li><input type="text" alt="Private number" id="privateNumber" /></li>
+                    <li><input type="text" alt="Work number" id="workNumber" /></li>
+                    <li><input type="text" alt="Private mail" id="privateMail" /></li>
+                    <li><input type="text" alt="Work mail" id="workMail" /></li>
+                    <li><a data-rel="back" class="ui-btn" onclick="saveProfile()">Save</a></li>
+                </ul>
+            </div>
+
+            <div data-role="popup" id="edit_user_social" data-overlay-theme="b" data-theme="b">
+                <ul data-role="listview" data-inset="true" style="min-width:210px;">
+                    <li data-role="list-divider">Contact</li>
+                    <li><input type="text" alt="Facebook" id="facebook" /></li>
+                    <li><input type="text" alt="Twitter" id="twitter" /></li>
+                    <li><a data-rel="back" class="ui-btn" onclick="saveProfile()">Save</a></li>
+                </ul>
             </div>
         </div>
 
@@ -194,8 +175,9 @@
                 <input type="button" value="Accept" onclick="acceptFriend(null)" /><input type="button" value="Decline" onclick="declineFriend(null)" />
 
             </div>
-            <div class="show_friend_info">
-                This person is now your friend and you will see the data from him.
+
+            <div id="show_friend_container">
+
             </div>
         </div>
 
@@ -253,16 +235,77 @@
             window.location.href = "./index.html#login";
         }
 
+        var categories = [["privateNumber", "contact"], ["workNumber", "contact"], ["privateMail", "contact"], ["workMail", "contact"], ["facebook", "social"], ["twitter", "social"]];
+        var contact = false;
+        var social = false;
         function setProfileData() {
+            contact = false;
+            social = false;
             //home
             $('.user_name').text(profile.name);
 
             //edit
+            //invullen van waarden voor te bewerken
             for (var property in profile) {
                 if (profile[property] != null) {
                     $("#" + property).attr("alt", profile[property]);
                 }
             }
+
+            //opvullen lijst van info
+            $("#show_user_container").empty();
+            $("#edit_user_container").empty();
+            for (var i = 0; i < categories.length; i++) {
+                for (var property in profile) {
+                    if (profile[property] != null) {
+                        if (categories[i][0] == property) {
+                            if (!window[categories[i][1]]) {
+                                $("#show_user_container").append('<div class="section"><p class="left"><img src="images/buttons/' + categories[i][1] + '.png" /></p><ul class="left" id="show_user_' + categories[i][1] + '_container"></ul><div class="clear-fix"></div></div>');
+                                $("#edit_user_container").append('<div class="section"><p class="left"><img src="images/buttons/' + categories[i][1] + '.png" /><br /><a href="#edit_user_' + categories[i][1] + '" data-rel="popup" data-role="none" data-transition="none" data-position-to="window"><img src="images/add.png" /></a></p><ul class="left" id="edit_user_' + categories[i][1] + '_container"></ul><div class="clear-fix"></div></div>');
+                                window[categories[i][1]] = true;
+                            }
+                            $('#show_user_' + categories[i][1] + '_container').append('<li><img src="images/buttons/' + property + '.png" class="left"/><span class="left">' + profile[property] + '</span></li>');
+                            $('#edit_user_' + categories[i][1] + '_container').append('<li onclick="deleteProperty(' + i + ')"><img src="images/buttons/' + property + '.png" class="left"/><span class="left">' + profile[property] + '</span></li>');
+                        }
+                    }
+                }
+            }
+        }
+
+        function addField(section) {
+            for (var i = 0; i < categories.length; i++) {
+                for (var property in profile) {
+                    if (profile[property] != null) {
+                        if (categories[i][0] == property) {
+                            return;
+                        }
+                    }
+                }
+            }
+
+            $("#edit_user_container").append('<div class="section"><p class="left"><img src="images/buttons/' + section + '.png" /><br /><a href="#edit_user_' + section + '" data-rel="popup" data-role="none" data-transition="none" data-position-to="window"><img src="images/add.png" /></p><ul class="left" id="edit_user_' + section + '_container"></ul><div class="clear-fix"></div></div>');
+        }
+
+        function deleteProperty(number) {
+            profile[categories[number][0]] = null;
+
+            $.ajax({
+                url: url + 'api/profile/postprofile',
+                type: 'POST',
+                async: false,
+                contentType: 'application/json',
+                data: JSON.stringify(profile),
+                success: function (data) {
+                    profile = data;
+                    window.localStorage.setItem('profile', JSON.stringify(data));
+                    setProfileData();
+                },
+                error: function (e) {
+                    alert("Something went wrong.");
+                },
+                dataType: 'json',
+                contentType: "application/json"
+            });
         }
 
         function saveProfile() {

@@ -102,6 +102,7 @@ a {
         .home .section .left img {
             height: 25px;
             width: 25px;
+            margin-bottom:15px;
         }
 
         .home .section .left span {

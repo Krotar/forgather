@@ -24,7 +24,7 @@
 
 function showFriend(userID) {
     $('.show_friend_invited').css("display", "none");
-    $('.show_friend_info').css("display", "none");
+    $('#show_friend_container').css("display", "none");
 
     document.getElementsByClassName("friend_name")[0].focus();
     friends.forEach(function (friend) {
@@ -40,9 +40,29 @@ function showFriend(userID) {
             friend = value;
         }
     });
+
     if (friend.friend == "Accepted") {
+        contact = false;
+        social = false;
         $('.friend_name').text(friend.name);
-        $('.show_friend_info').fadeIn();
+        $('#show_friend_container').fadeIn();
+
+        //opvullen lijst van info
+        $("#show_friend_container").empty();
+        for (var i = 0; i < categories.length; i++) {
+            for (var property in friend) {
+                if (friend[property] != null) {
+                    if (categories[i][0] == property) {
+                        if (!window[categories[i][1]]) {
+                            $("#show_friend_container").append('<div class="section"><p class="left"><img src="images/buttons/' + categories[i][1] + '.png" /></p><ul class="left" id="show_friend_' + categories[i][1] + '_container"></ul><div class="clear-fix"></div></div>');
+                            window[categories[i][1]] = true;
+                        }
+                        $('#show_friend_' + categories[i][1] + '_container').append('<li><img src="images/buttons/' + property + '.png" class="left"/><span class="left">' + friend[property] + '</span></li>');
+                    }
+                }
+            }
+        }
+
     }
     if (friend.friend == "To") {
         $('.friend_name').text(friend.name);
