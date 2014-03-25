@@ -1,7 +1,7 @@
 ﻿function getFriends() {
     $.ajax({
         datatype: 'json',
-        url: url + "/api/friend/getfriends?userID=" + profile.userID,
+        url: url + "api/friend/getfriends?userID=" + profile.userID,
         data: null,
         success: function (data) {
             friends = data;

@@ -213,6 +213,10 @@ label {
     display: none;
 }
 
+.user_name{
+    font-size:20px;
+}
+
 /*Aangepaste UI stukken*/
 .ui-overlay-shadow {
     -webkit-box-shadow: none;
