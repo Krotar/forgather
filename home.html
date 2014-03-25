@@ -93,9 +93,9 @@
                     <p>Edit your profile</p>
                 </div>
             </div>
+
             <div class="section">
                 Adress
-
                 <a href="#edit_user_adress_popup" data-rel="popup" data-transition="none" id="eenrandomlink" class="ui-btn" data-position-to="window">Edit adress details</a>
                 <div data-role="popup" id="edit_user_adress_popup" data-overlay-theme="b" data-theme="b">
                     <ul data-role="listview" data-inset="true" style="min-width:210px;">
@@ -109,17 +109,17 @@
                     </ul>
                 </div>
             </div>
+
             <div class="section">
                 Contact
-
                 <a href="#edit_user_contact" data-rel="popup" data-transition="none" id="eenrandomlink" class="ui-btn" data-position-to="window">Edit contact details</a>
                 <div data-role="popup" id="edit_user_contact" data-overlay-theme="b" data-theme="b">
                     <ul data-role="listview" data-inset="true" style="min-width:210px;">
                         <li data-role="list-divider">Contact</li>
-                        <li><input type="text" alt="Private number" id="edit_private_number" /></li>
-                        <li><input type="text" alt="Work number" id="edit_work_number" /></li>
-                        <li><input type="text" alt="Private mail" id="edit_private_mail" /></li>
-                        <li><input type="text" alt="Work mail" id="edit_work_mail" /></li>
+                        <li><input type="text" alt="Private number" id="privateNumber" /></li>
+                        <li><input type="text" alt="Work number" id="workNumber" /></li>
+                        <li><input type="text" alt="Private mail" id="privateMail" /></li>
+                        <li><input type="text" alt="Work mail" id="workMail" /></li>
                         <li><a data-rel="back" class="ui-btn" onclick="saveProfile()">Save</a></li>
                     </ul>
                 </div>
@@ -258,45 +258,20 @@
             $('.user_name').text(profile.name);
 
             //edit
-            $('#edit_name').val(profile.name);
-            $('#edit_private_number').attr("alt", profile.privateNumber);
-            $('#edit_work_number').attr("alt", profile.workNumber);
-            $('#edit_private_mail').attr("alt", profile.privateMail);
-            $('#edit_work_mail').attr("alt", profile.workMail);
-            $('#edit_facebook').val(profile.facebook);
-            $('#edit_twitter').val(profile.twitter);
-            $('#edit_linkedin').val(profile.linkedin);
-            $('#edit_instagram').val(profile.instagram);
-            $('#edit_skype').val(profile.skype);
-            $('#edit_googlePlus').val(profile.googlePlus);
-            $('#edit_pinterest').val(profile.pinterest);
-            $('#edit_unkown').val(profile.unknown);
-            $('#edit_soundcloud').val(profile.soundcloud);
-            $('#edit_steam').val(profile.steam);
-            $('#edit_playstation').val(profile.playstation);
-            $('#edit_xbox').val(profile.xbox);
+            for (var property in profile) {
+                if (profile[property] != null) {
+                    $("#" + property).attr("alt", profile[property]);
+                }
+            }
         }
 
         function saveProfile() {
-            //profile.name = $('#edit_name').val();
-            profile.privateNumber = $('#edit_private_number').val();
-            profile.workNumber = $('#edit_work_number').val();
-            profile.privateMail = $('#edit_private_mail').val();
-            profile.workMail = $('#edit_work_mail').val();
-            profile.facebook = $('#edit_facebook').val();
-            profile.twitter = $('#edit_twitter').val();
-            profile.linkedin = $('#edit_linkedin').val();
-            profile.instagram = $('#edit_instagram').val();
-            profile.skype = $('#edit_skype').val();
-            profile.googlePlus = $('#edit_googlePlus').val();
-            profile.pinterest = $('#edit_pinterest').val();
-            profile.unknown = $('#edit_unkown').val();
-            profile.soundcloud = $('#edit_soundcloud').val();
-            profile.steam = $('#edit_steam').val();
-            profile.playstation = $('#edit_playstation').val();
-            profile.xbox = $('#edit_xbox').val();
-
-            console.log(profile);
+            for (var property in profile) {
+                element = $("#" + property);
+                if (element.val() != element.attr("alt")) {
+                    profile[property] = element.val();
+                }
+            }
 
             $.ajax({
                 url: url + 'api/profile/postprofile',
@@ -305,7 +280,6 @@
                 contentType: 'application/json',
                 data: JSON.stringify(profile),
                 success: function (data) {
-                    location.hash = "show_user";
                     profile = data;
                     window.localStorage.setItem('profile', JSON.stringify(data));
                     setProfileData();
