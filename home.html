@@ -73,7 +73,7 @@
         <div data-role="panel" id="show_user_panel" data-position="right" data-display="reveal" data-theme="b" class="ui-panel ui-panel-position-right ui-panel-display-reveal ui-body-b ui-panel-animate ui-panel-open">
             <div class="ui-panel-inner">
                 <ul class="friends">
-                    <li class="search"><img src="images/search.png" /><input type="text" alt="Search friends" data-role="none" /><div class="clear-fix"></div></li>
+                    <li class="search"><img src="images/search.png" /><input type="text" alt="Search friends" data-role="none" class="search_contact" /><div class="clear-fix"></div></li>
                 </ul>
             </div>
         </div>
@@ -129,7 +129,7 @@
         <div data-role="panel" id="edit_user_panel" data-position="right" data-display="reveal" data-theme="b" class="ui-panel ui-panel-position-right ui-panel-display-reveal ui-body-b ui-panel-animate ui-panel-open">
             <div class="ui-panel-inner">
                 <ul class="friends">
-                    <li class="search"><img src="images/search.png" /><input type="text" alt="Search friends" data-role="none" /><div class="clear-fix"></div></li>
+                    <li class="search"><img src="images/search.png" /><input type="text" alt="Search friends" data-role="none" class="search_contact" /><div class="clear-fix"></div></li>
                 </ul>
             </div>
         </div>
@@ -162,7 +162,7 @@
         <div data-role="panel" id="invite_friend_panel" data-position="right" data-display="reveal" data-theme="b" class="ui-panel ui-panel-position-right ui-panel-display-reveal ui-body-b ui-panel-animate ui-panel-open">
             <div class="ui-panel-inner">
                 <ul class="friends">
-                    <li class="search"><img src="images/search.png" /><input type="text" alt="Search friends" data-role="none" /><div class="clear-fix"></div></li>
+                    <li class="search"><img src="images/search.png" /><input type="text" alt="Search friends" data-role="none" class="search_contact" /><div class="clear-fix"></div></li>
                 </ul>
             </div>
         </div>
@@ -202,7 +202,7 @@
         <div data-role="panel" id="show_friend_panel" data-position="right" data-display="reveal" data-theme="b" class="ui-panel ui-panel-position-right ui-panel-display-reveal ui-body-b ui-panel-animate ui-panel-open">
             <div class="ui-panel-inner">
                 <ul class="friends">
-                    <li class="search"><img src="images/search.png" /><input type="text" alt="Search friends" data-role="none" /><div class="clear-fix"></div></li>
+                    <li class="search"><img src="images/search.png" /><input type="text" alt="Search friends" data-role="none" class="search_contact" /><div class="clear-fix"></div></li>
                 </ul>
             </div>
         </div>
@@ -219,8 +219,8 @@
             if (profile.profileID != 0) {
                 setProfileData();
             }
-            getFriends();
 
+            getFriends();
 
             $("input:text, input:password").each(function () {
                 $(this).val($(this).attr("alt"));
@@ -239,6 +239,8 @@
                     $(this).val($(this).attr("alt"));
                 }
             });
+
+            searchFriends();
         });
 
         function feedback() {

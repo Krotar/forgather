@@ -187,8 +187,8 @@ label {
         }
 
         .friends .search input {
-            color: gray;
-            font-size: 15px;
+            color: #707070;
+            font-size: 16px;
             border: 0px solid white;
             outline: 0;
             height: 58px;
