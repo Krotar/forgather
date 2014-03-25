@@ -175,8 +175,32 @@ label {
     padding: 0px;
 }
 
+    .friends .search {
+        padding: 0px 0px 0px 15px;
+        border-bottom: 2px solid #e5e5e5;
+    }
 
-    .friends li a {
+        .friends .search img {
+            margin-top: 20px;
+            height: 20px;
+            float: left;
+        }
+
+        .friends .search input {
+            color: gray;
+            font-size: 15px;
+            border: 0px solid white;
+            outline: 0;
+            height: 58px;
+            float: left;
+            padding-left: 15px;
+        }
+
+            .friends .search input:focus {
+                outline: 0;
+            }
+
+    .friends .user a {
         border-bottom: 2px solid #e5e5e5;
         display: block;
         padding: 20px 15px 20px 15px;
@@ -186,24 +210,24 @@ label {
         font-size: 15px;
     }
 
-        .friends li a > img {
-            height: 45px;
-            float: left;
-            margin-right: 10px;
-        }
+    .friends .user a > img {
+        height: 45px;
+        float: left;
+        margin-right: 10px;
+    }
 
-        .friends li a span {
-            float: left;
-            margin-top: 14px;
-        }
+    .friends .user a span {
+        float: left;
+        margin-top: 14px;
+    }
 
-        .friends li a:hover {
-            color: #707070;
-        }
+    .friends .user a:hover {
+        color: #707070;
+    }
 
-        .friends li a:visited {
-            color: #707070;
-        }
+    .friends .user a:visited {
+        color: #707070;
+    }
 
     .friends .user a {
         padding: 15px 15px 15px 15px;
@@ -228,7 +252,7 @@ label {
     display: none;
 }
 
-.user_name {
+.user_name, .friend_name {
     font-size: 20px;
 }
 
@@ -236,6 +260,10 @@ label {
 .ui-overlay-shadow {
     -webkit-box-shadow: none;
     box-shadow: none;
+}
+
+.ui-content {
+    padding: 10px !important;
 }
 
 .ui-body-c {

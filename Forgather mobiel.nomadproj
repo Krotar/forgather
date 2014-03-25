@@ -29,6 +29,9 @@
     <Content Include="images\delete.png">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="images\search.png">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="logo.png">
       <SubType>Content</SubType>
     </Content>
