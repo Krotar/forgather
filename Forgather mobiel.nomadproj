@@ -26,6 +26,30 @@
     <Content Include="images\accept.png">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="images\add.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="images\buttons\facebook.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="images\buttons\privateNumber.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="images\buttons\privateMail.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="images\buttons\social.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="images\buttons\twitter.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="images\buttons\workMail.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="images\buttons\workNumber.png">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="images\delete.png">
       <SubType>Content</SubType>
     </Content>
@@ -77,19 +101,7 @@
     <Content Include="icons\android\icon-xhdpi.png">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="images\buttons\category_contact.png">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="images\buttons\category_contact_one.png">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="images\buttons\category_phone.png">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="images\buttons\category_phone_home.png">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="images\buttons\category_phone_mobile.png">
+    <Content Include="images\buttons\contact.png">
       <SubType>Content</SubType>
     </Content>
     <Content Include="images\choosephoto.png">

@@ -238,6 +238,8 @@
         var categories = [["privateNumber", "contact"], ["workNumber", "contact"], ["privateMail", "contact"], ["workMail", "contact"], ["facebook", "social"], ["twitter", "social"]];
         var contact = false;
         var social = false;
+        var usercontact = false;
+        var usersocial = false;
         function setProfileData() {
             contact = false;
             social = false;
@@ -263,6 +265,7 @@
                                 $("#show_user_container").append('<div class="section"><p class="left"><img src="images/buttons/' + categories[i][1] + '.png" /></p><ul class="left" id="show_user_' + categories[i][1] + '_container"></ul><div class="clear-fix"></div></div>');
                                 $("#edit_user_container").append('<div class="section"><p class="left"><img src="images/buttons/' + categories[i][1] + '.png" /><br /><a href="#edit_user_' + categories[i][1] + '" data-rel="popup" data-role="none" data-transition="none" data-position-to="window"><img src="images/add.png" /></a></p><ul class="left" id="edit_user_' + categories[i][1] + '_container"></ul><div class="clear-fix"></div></div>');
                                 window[categories[i][1]] = true;
+                                window["user" + categories[i][1]] = true;
                             }
                             $('#show_user_' + categories[i][1] + '_container').append('<li><img src="images/buttons/' + property + '.png" class="left"/><span class="left">' + profile[property] + '</span></li>');
                             $('#edit_user_' + categories[i][1] + '_container').append('<li onclick="deleteProperty(' + i + ')"><img src="images/buttons/' + property + '.png" class="left"/><span class="left">' + profile[property] + '</span></li>');
@@ -273,17 +276,12 @@
         }
 
         function addField(section) {
-            for (var i = 0; i < categories.length; i++) {
-                for (var property in profile) {
-                    if (profile[property] != null) {
-                        if (categories[i][0] == property) {
-                            return;
-                        }
-                    }
-                }
-            }
+            console.log(window["user" + section]);
 
-            $("#edit_user_container").append('<div class="section"><p class="left"><img src="images/buttons/' + section + '.png" /><br /><a href="#edit_user_' + section + '" data-rel="popup" data-role="none" data-transition="none" data-position-to="window"><img src="images/add.png" /></p><ul class="left" id="edit_user_' + section + '_container"></ul><div class="clear-fix"></div></div>');
+            if (!window["user" + section]) {
+                $("#edit_user_container").append('<div class="section"><p class="left"><img src="images/buttons/' + section + '.png" /><br /><a href="#edit_user_' + section + '" data-rel="popup" data-role="none" data-transition="none" data-position-to="window"><img src="images/add.png" /></p><ul class="left" id="edit_user_' + section + '_container"></ul><div class="clear-fix"></div></div>');
+                window["user" + section] = true;
+            }
         }
 
         function deleteProperty(number) {
