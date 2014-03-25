@@ -24,7 +24,7 @@ button,
 .ui-btn {
 	font-size: 1em;
 	line-height: 1.3;
-	        font-family: sans-serif /*{global-font-family}*/;
+	         font-family: calibri /*{global-font-family}*/;
 }
 legend,
 .ui-input-text input,
@@ -546,8 +546,8 @@ html head   body .ui-body-b.ui-focus {
 html .ui-bar-c .ui-bar-inherit,
 html .ui-body-c .ui-bar-inherit,
 html body .ui-group-theme-c .ui-bar-inherit {
-	background-color: #eeeeee /*{c-bar-background-color}*/;
-	border-color: #eeeeee /*{c-bar-border}*/;
+	background-color: #e2814a /*{c-bar-background-color}*/;
+	border-color: #e2814a /*{c-bar-border}*/;
 	color: #ffffff /*{c-bar-color}*/;
 	text-shadow: 0 /*{c-bar-shadow-x}*/ 0px /*{c-bar-shadow-y}*/ 0 /*{c-bar-shadow-radius}*/ #eeeeee /*{c-bar-shadow-color}*/;
 	font-weight: bold;
@@ -560,8 +560,8 @@ html body .ui-group-theme-c .ui-bar-inherit {
 .ui-overlay-c,
 .ui-page-theme-c,
 .ui-page-theme-c .ui-panel-wrapper {
-	background-color: #eeeeee /*{c-page-background-color}*/;
-	border-color: #eeeeee /*{c-page-border}*/;
+	background-color: #e2814a /*{c-page-background-color}*/;
+	border-color: #e2814a /*{c-page-border}*/;
 	color: #707070 /*{c-page-color}*/;
 	text-shadow: 0 /*{c-page-shadow-x}*/ 0px /*{c-page-shadow-y}*/ 0 /*{c-page-shadow-radius}*/ #f3f3f3 /*{c-page-shadow-color}*/;
 }
@@ -742,4 +742,4 @@ button[disabled],
 	outline-width: 1px;
 	outline-style: auto;
 }
-															
+																		

@@ -11,7 +11,7 @@
                     if (value.friend == "Accepted") {
                         $(".friends").append('<li class="user"><a href="#show_friend" data-rel="close" data-transition="none" onclick="showFriend(' + value.userID + ')"><img src="images/profiles/nick.png"/><span>' + value.name + '</span><div class="clear-fix"></div></a></li>');
                     } else {
-                        $(".friends").append('<li class="user"><a href="#show_friend" data-rel="close" data-transition="none" onclick="showFriend(' + value.userID + ')"><img src="images/profiles/nick.png"/><span>' + value.name + '</span><span class="request"><img src="images/accept_friend.png" onclick="acceptFriend(' + value.userID + ')"/><img src="images/decline_friend.png"  onclick="declineFriend(' + value.userID + ')"/></span><div class="clear-fix"></div></a></li>');
+                        $(".friends").append('<li class="user"><a href="#show_friend" data-rel="close" data-transition="none" onclick="showFriend(' + value.userID + ')"><img src="images/profiles/nick.png"/><span>' + value.name + '</span><span class="request"><img src="images/accept.png" onclick="acceptFriend(' + value.userID + ')"/><img src="images/delete.png"  onclick="declineFriend(' + value.userID + ')"/></span><div class="clear-fix"></div></a></li>');
                     }
                 }
             });

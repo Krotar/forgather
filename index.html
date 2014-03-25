@@ -21,7 +21,13 @@
             <input id="loginEmail" type="text" alt="Email" />
             <input id="loginPassword" type="password" alt="Password" />
             <input type="button" value="Log In" onclick="login()" />
-            <a href="#register" data-direction="reverse" class="info">Sign up for Forgather</a>
+        </div>
+
+        <div data-role="footer" class="ui-content" role="main">
+            <div class="right"><a>?</a></div>
+            <div class="center">
+                <a href="#register" data-role="none" data-direction="reverse" class="info">Sign up for Forgather</a>
+            </div>
         </div>
     </div>
 
@@ -139,6 +145,11 @@
 
         function setup() {
             profile.name = $('#setup_name').val();
+
+            if (profile.name == null || profile.name == "") {
+                alert("Please fill in a name.");
+                return;
+            }
 
             $.ajax({
                 url: url + 'api/user/setup',

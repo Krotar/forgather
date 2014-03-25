@@ -23,10 +23,10 @@
     <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="images\accept_friend.png">
+    <Content Include="images\accept.png">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="images\decline_friend.png">
+    <Content Include="images\delete.png">
       <SubType>Content</SubType>
     </Content>
     <Content Include="logo.png">
