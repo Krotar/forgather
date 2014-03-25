@@ -188,7 +188,9 @@
             </div>
             <div class="show_friend_invited">
                 This person has requested to shair cards with you.
+                <!--
                 <input type="button" value="Accept" onclick="acceptFriend()" /><input type="button" value="Decline" onclick="declineFriend()" />
+                    -->
             </div>
             <div class="show_friend_info">
                 This person is now your friend and you will see the data from him.
@@ -217,7 +219,7 @@
             }
             getFriends();
 
-            
+
             $("input:text, input:password").each(function () {
                 $(this).val($(this).attr("alt"));
             });
