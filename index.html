@@ -36,8 +36,19 @@
         </div>
     </div>
 
+    <div data-role="page" id="setup" data-theme="a">
+        <div data-role="content" class="ui-content" role="main">
+            <h1>Welcome to Forgather!</h1>
+            <p>Share your rich, cloud stored contact information, in the blink of an eye but first fill in your name.</p>
+            <input id="setup_name" type="text" alt="Name" />
+            <input type="button" value="Finish account" onclick="setup()" />
+        </div>
+    </div>
+
     <script src="scripts/database-connection.js"></script>
     <script>
+        var profile;
+
         $(document).ready(function () {
             // set all input.text default value according to alt attribute
             $("input:text, input:password").each(function () {
@@ -72,8 +83,13 @@
                 contentType: 'application/json',
                 data: JSON.stringify(user),
                 success: function (data) {
-                    window.localStorage.setItem('profile', JSON.stringify(data));
-                    window.location.href = "./home.html#show_user";
+                    profile = data;
+                    if (profile.name == null) {
+                        window.location.href = "#setup";
+                    } else {
+                        window.localStorage.setItem('profile', JSON.stringify(data));
+                        window.location.href = "./home.html#show_user";
+                    }
                 },
                 error: function (e) {
                     alert("Wrong credentials.");
@@ -92,13 +108,14 @@
                 alert("Not a valid email");
                 return;
             }
+
             if (password == "Password" || password == "") {
                 alert("Please enter a valid password.");
                 return;
             }
+
             if (password == passwordTwo) {
                 var user = { userID: 0, userName: email, password: password, timestamp: null };
-
                 $.ajax({
                     url: url + 'api/user/register',
                     type: 'POST',
@@ -106,7 +123,8 @@
                     contentType: 'application/json',
                     data: JSON.stringify(user),
                     success: function (data) {
-                        alert("Succesfull registration. You can now login.");
+                        profile = data;
+                        window.location.href = "#setup";
                     },
                     error: function (e) {
                         alert("That email has already registered.");
@@ -117,6 +135,27 @@
             } else {
                 alert("Passwords do not match");
             }
+        }
+
+        function setup() {
+            profile.name = $('#setup_name').val();
+
+            $.ajax({
+                url: url + 'api/user/setup',
+                type: 'POST',
+                async: false,
+                contentType: 'application/json',
+                data: JSON.stringify(profile),
+                success: function (data) {
+                    window.localStorage.setItem('profile', JSON.stringify(data));
+                    window.location.href = "./home.html#show_user";
+                },
+                error: function (e) {
+                    alert("That email has already registered.");
+                },
+                dataType: 'json',
+                contentType: "application/json"
+            });
         }
 
         function isValidEmailAddress(emailAddress) {

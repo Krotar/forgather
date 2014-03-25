@@ -177,8 +177,9 @@
         <div data-role="content" class="ui-content home" role="main">
             <div class="section">
                 <div class="profile">
+                    <div class="right"><a href="#show_user" data-transition="none" onclick="deleteFriend()"><img src="images/delete.png" style="height:30px; width:auto;" /></a></div>
                     <div class="center">
-                        <a href="#show_friend_image" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="images/profiles/nick.png" alt="profile"></a>
+                        <a href="#show_user_image" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="images/profiles/nick.png" alt="profile"></a>
                     </div>
                     <p><span class="friend_name">Friend name</span></p>
                 </div>
@@ -188,9 +189,9 @@
             </div>
             <div class="show_friend_invited">
                 This person has requested to shair cards with you.
-                <!--
-                <input type="button" value="Accept" onclick="acceptFriend()" /><input type="button" value="Decline" onclick="declineFriend()" />
-                    -->
+
+                <input type="button" value="Accept" onclick="acceptFriend(null)" /><input type="button" value="Decline" onclick="declineFriend(null)" />
+
             </div>
             <div class="show_friend_info">
                 This person is now your friend and you will see the data from him.

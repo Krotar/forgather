@@ -58,7 +58,28 @@ function inviteFriend() {
     });
 }
 
+
+function deleteFriend() {
+    $.ajax({
+        url: url + 'api/friend/delete?userID=' + profile.userID + '&friendID=' + friend.userID,
+        type: 'POST',
+        async: false,
+        contentType: 'application/json',
+        data: null,
+        success: function (e) {
+            getFriends();
+        },
+        error: function (e) {
+            alert("Something went wrong.");
+        }
+    });
+}
+
 function acceptFriend(friendID) {
+    if (friendID == null) {
+        friendID = friend.userID;
+    }
+
     $.ajax({
         url: url + 'api/friend/accept?userID=' + profile.userID + '&friendID=' + friendID,
         type: 'POST',
@@ -79,6 +100,10 @@ function acceptFriend(friendID) {
 }
 
 function declineFriend(friendID) {
+    if (friendID == null) {
+        friendID = friend.userID;
+    }
+
     $.ajax({
         url: url + 'api/friend/decline?userID=' + profile.userID + '&friendID=' + friendID,
         type: 'POST',

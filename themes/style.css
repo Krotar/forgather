@@ -14,9 +14,24 @@ a {
     clear: both;
 }
 
-#login .ui-content, #register .ui-content {
+#login .ui-content, #register .ui-content, #setup .ui-content {
     text-align: center;
 }
+
+#setup .ui-content {
+    margin-top: 40%;
+}
+
+
+    #setup .ui-content h1 {
+        font-size: 30px;
+        font-weight: normal;
+        margin-bottom: 30px;
+    }
+
+    #setup .ui-content p {
+        margin-bottom: 30px;
+    }
 
 #login #logo, #register #logo {
     margin-top: 10%;
@@ -213,8 +228,8 @@ label {
     display: none;
 }
 
-.user_name{
-    font-size:20px;
+.user_name {
+    font-size: 20px;
 }
 
 /*Aangepaste UI stukken*/
