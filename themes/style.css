@@ -261,18 +261,21 @@ label {
     bottom: 0;
     position: absolute !important;
     top: auto !important;
-    width: 100%;
+    left: 0px;
+    right: 0px;
+    font-size: 16px;
+    margin-bottom: 5px;
 }
 
     [data-role=footer] .center {
         text-align: center;
         margin: 0 auto;
         width: 220px;
+        margin-top: 22px;
     }
 
     [data-role=footer] .right {
-        text-align: center;
+        text-align: right;
         float: right;
         width: 50px;
-        margin-right:16px;
     }
