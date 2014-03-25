@@ -266,16 +266,3 @@ label {
     font-size: 16px;
     margin-bottom: 5px;
 }
-
-    [data-role=footer] .center {
-        text-align: center;
-        margin: 0 auto;
-        width: 220px;
-        margin-top: 22px;
-    }
-
-    [data-role=footer] .right {
-        text-align: right;
-        float: right;
-        width: 50px;
-    }

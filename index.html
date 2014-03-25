@@ -24,10 +24,7 @@
         </div>
 
         <div data-role="footer" class="ui-content" role="main">
-            <div class="right"><a data-role="button">?</a></div>
-            <div class="center">
-                <a href="#register" data-role="none" data-direction="reverse">Sign up for Forgather</a>
-            </div>
+            <a href="#register" data-role="none" data-direction="reverse">Sign up for Forgather</a>
         </div>
     </div>
 
@@ -41,10 +38,7 @@
         </div>
 
         <div data-role="footer" class="ui-content" role="main">
-
-            <div class="center">
-                <a href="#login" data-direction="reverse" class="info">Already got a Forgather account?</a>
-            </div>
+            <a href="#login" data-direction="reverse" class="info">Already got a Forgather account?</a>
         </div>
     </div>
 
@@ -72,6 +66,7 @@
                 if ($(this).val() == $(this).attr("alt")) {
                     $(this).val("");
                 }
+                $('[data-role="footer"]').css("display", "none");
             });
 
             // if field is empty afterward, add text again
@@ -79,6 +74,7 @@
                 if ($(this).val() == "") {
                     $(this).val($(this).attr("alt"));
                 }
+                $('[data-role="footer"]').css("display", "block");
             });
         });
 

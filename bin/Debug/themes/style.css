@@ -130,16 +130,16 @@ a {
                 margin-top: 20px;
             }
 
-             .right {
+            .home .section .profile .right {
                 text-align: center;
                 float: right;
                 width: 50px;
             }
 
-            .center {
+            .home .section .profile .center {
                 text-align: center;
                 margin: 0 auto;
-                width: 200px;
+                width: 100px;
             }
 
         .home .section ul {
@@ -250,4 +250,32 @@ label {
     #edit_user .ui-popup-container .ui-btn, #edit_user .ui-popup-container .ui-li-divider {
         text-align: center;
         font-size: 18px;
+    }
+
+[data-role=page] {
+    height: 100% !important;
+    position: relative !important;
+}
+
+[data-role=footer] {
+    bottom: 0;
+    position: absolute !important;
+    top: auto !important;
+    left: 0px;
+    right: 0px;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+    [data-role=footer] .center {
+        text-align: center;
+        margin: 0 auto;
+        width: 220px;
+        margin-top: 22px;
+    }
+
+    [data-role=footer] .right {
+        text-align: right;
+        float: right;
+        width: 50px;
     }
