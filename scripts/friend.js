@@ -42,7 +42,8 @@ function showFriend(userID) {
     });
 
     if (friend.friend == "Accepted") {
-        contact = false;
+        number = false;
+        mail = false;
         social = false;
         gaming = false;
         $('.friend_name').text(friend.name);

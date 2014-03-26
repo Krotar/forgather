@@ -21,7 +21,7 @@
 
             <div data-role="popup" id="show_user_menu" data-theme="c" style="top:30px;">
                 <ul data-role="listview" data-inset="false" data-position-to="window" style="min-width:210px;">
-                    <li data-icon="false"><a href="#" onclick="feedback()" style="border-top:0px">Feedback</a></li>
+                    <li data-icon="false"><a href="mailto:nicolanauwynck@hotmail.com"style="border-top:0px">Feedback</a></li>
                     <li data-icon="false"><a href="http://student.howest.be/nicola.nauwynck/">Website</a></li>
                     <li data-icon="false"><a href="#" onclick="logout()">Logout</a></li>
                 </ul>
@@ -81,17 +81,25 @@
             <div data-role="popup" id="edit_user_field" data-overlay-theme="b" data-theme="b">
                 <ul data-role="listview" data-inset="true" style="min-width:210px;">
                     <li data-role="list-divider">Select field</li>
-                    <li><a data-rel="back" onclick="addField('contact')" data-role="none">Contact</a></li>
+                    <li><a data-rel="back" onclick="addField('mail')" data-role="none">Mail</a></li>
+                    <li><a data-rel="back" onclick="addField('number')" data-role="none">Phone number</a></li>
                     <li><a data-rel="back" onclick="addField('social')" data-role="none">Social</a></li>
                     <li><a data-rel="back" onclick="addField('gaming')" data-role="none">Gaming</a></li>
                 </ul>
             </div>
 
-            <div data-role="popup" id="edit_user_contact" data-overlay-theme="b" data-theme="b">
+            <div data-role="popup" id="edit_user_number" data-overlay-theme="b" data-theme="b">
                 <ul data-role="listview" data-inset="true" style="min-width:210px;">
-                    <li data-role="list-divider">Contact</li>
+                    <li data-role="list-divider">Phone number</li>
                     <li><img src="images/buttons/privateNumber.png" /><input type="text" alt="Private number" id="privateNumber" /></li>
                     <li><img src="images/buttons/privateNumber.png" /><input type="text" alt="Work number" id="workNumber" /></li>
+                    <li><a data-rel="back" class="ui-btn" onclick="saveProfile()">Save</a></li>
+                </ul>
+            </div>
+
+            <div data-role="popup" id="edit_user_mail" data-overlay-theme="b" data-theme="b">
+                <ul data-role="listview" data-inset="true" style="min-width:210px;">
+                    <li data-role="list-divider">Mail</li>
                     <li><img src="images/buttons/privateNumber.png" /><input type="text" alt="Private mail" id="privateMail" /></li>
                     <li><img src="images/buttons/privateNumber.png" /><input type="text" alt="Work mail" id="workMail" /></li>
                     <li><a data-rel="back" class="ui-btn" onclick="saveProfile()">Save</a></li>
@@ -247,12 +255,14 @@
             }
         }
 
-        var categories = [["privateNumber", "contact"], ["workNumber", "contact"], ["privateMail", "contact"], ["workMail", "contact"], ["facebook", "social"], ["twitter", "social"], ["playstation", "gaming"], ["xbox", "gaming"]];
-        var contact = false;
+        var categories = [["privateNumber", "number"], ["workNumber", "number"], ["privateMail", "mail"], ["workMail", "mail"], ["facebook", "social"], ["twitter", "social"], ["playstation", "gaming"], ["xbox", "gaming"]];
+        var number = false;
+        var mail = false;
         var social = false;
         var gaming = false;
         function setProfileData() {
-            contact = false;
+            number = false;
+            mail = false;
             social = false;
             gaming = false;
             //home
@@ -276,11 +286,11 @@
                         if (categories[i][0] == property) {
                             if (!window[categories[i][1]]) {
                                 $("#show_user_container").append('<div class="section"><p class="left"><img src="images/buttons/' + categories[i][1] + '.png" /></p><ul class="left" id="show_user_' + categories[i][1] + '_container"></ul><div class="clear-fix"></div></div>');
-                                $("#edit_user_container").append('<div class="section"><p class="left"><img src="images/buttons/' + categories[i][1] + '.png" /><br /><a href="#edit_user_' + categories[i][1] + '" data-rel="popup" data-role="none" data-transition="none" data-position-to="window"><img src="images/add.png" /></a></p><ul class="left" id="edit_user_' + categories[i][1] + '_container"></ul><div class="clear-fix"></div></div>');
+                                $("#edit_user_container").append('<div class="section"><p class="left"><img src="images/buttons/' + categories[i][1] + '.png" /><br /><a href="#edit_user_' + categories[i][1] + '" data-rel="popup" data-role="none" data-transition="none" data-position-to="window"><img src="images/add.png" /></a></p><ul id="edit_user_' + categories[i][1] + '_container"></ul><div class="clear-fix"></div></div>');
                                 window[categories[i][1]] = true;
                             }
                             $('#show_user_' + categories[i][1] + '_container').append('<li><img src="images/buttons/' + property + '.png" class="left"/><span class="left">' + profile[property] + '</span></li>');
-                            $('#edit_user_' + categories[i][1] + '_container').append('<li onclick="deleteProperty(' + i + ')"><img src="images/buttons/' + property + '.png" class="left"/><span class="left">' + profile[property] + '</span></li>');
+                            $('#edit_user_' + categories[i][1] + '_container').append('<li><img src="images/buttons/' + property + '.png" class="left"/><span class="left">' + profile[property] + '</span><img src="images/delete.png" class="right" onclick="deleteProperty(' + i + ')"/></li>');
                         }
                     }
                 }
