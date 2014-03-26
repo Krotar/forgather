@@ -21,7 +21,7 @@
 
             <div data-role="popup" id="show_user_menu" data-theme="c" style="top:30px;">
                 <ul data-role="listview" data-inset="false" data-position-to="window" style="min-width:210px;">
-                    <li data-icon="false"><a href="mailto:nicolanauwynck@hotmail.com"style="border-top:0px">Feedback</a></li>
+                    <li data-icon="false"><a href="mailto:nicolanauwynck@hotmail.com" style="border-top:0px">Feedback</a></li>
                     <li data-icon="false"><a href="http://student.howest.be/nicola.nauwynck/">Website</a></li>
                     <li data-icon="false"><a href="#" onclick="logout()">Logout</a></li>
                 </ul>
@@ -81,10 +81,11 @@
             <div data-role="popup" id="edit_user_field" data-overlay-theme="b" data-theme="b">
                 <ul data-role="listview" data-inset="true" style="min-width:210px;">
                     <li data-role="list-divider">Select field</li>
-                    <li><a data-rel="back" onclick="addField('mail')" data-role="none">Mail</a></li>
-                    <li><a data-rel="back" onclick="addField('number')" data-role="none">Phone number</a></li>
-                    <li><a data-rel="back" onclick="addField('social')" data-role="none">Social</a></li>
-                    <li><a data-rel="back" onclick="addField('gaming')" data-role="none">Gaming</a></li>
+                    <li><a data-rel="back" class="ui-btn field-button"  onclick="addField('mail')">Mail</a></li>
+                    <li><a data-rel="back" class="ui-btn field-button" onclick="addField('number')">Phone number</a></li>
+                    <li><a data-rel="back" class="ui-btn field-button" onclick="addField('social')">Social</a></li>
+                    <li><a data-rel="back" class="ui-btn field-button" onclick="addField('gaming')">Gaming</a></li>
+                    <li><a data-rel="back" class="ui-btn">Cancel</a></li>
                 </ul>
             </div>
 
@@ -231,7 +232,7 @@
             window.location.href = "./index.html#login";
         }
 
-        function setInputFields(){
+        function setInputFields() {
             $("input:text, input:password").each(function () {
                 $(this).val($(this).attr("alt"));
             });
@@ -270,13 +271,13 @@
 
             //edit
             //invullen van waarden voor te bewerken
-            
+
             for (var property in profile) {
                 if (profile[property] != null) {
                     $("#" + property).val(profile[property]);
                 }
             }
-            
+
             //opvullen lijst van info
             $("#show_user_container").empty();
             $("#edit_user_container").empty();
