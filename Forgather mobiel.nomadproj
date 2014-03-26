@@ -32,6 +32,12 @@
     <Content Include="images\buttons\facebook.png">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="images\buttons\gaming.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="images\buttons\playstation.png">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="images\buttons\privateNumber.png">
       <SubType>Content</SubType>
     </Content>
@@ -48,6 +54,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="images\buttons\workNumber.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="images\buttons\xbox.png">
       <SubType>Content</SubType>
     </Content>
     <Content Include="images\delete.png">

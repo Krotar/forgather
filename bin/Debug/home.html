@@ -81,27 +81,37 @@
             <div data-role="popup" id="edit_user_field" data-overlay-theme="b" data-theme="b">
                 <ul data-role="listview" data-inset="true" style="min-width:210px;">
                     <li data-role="list-divider">Select field</li>
-                    <li data-rel=""><a data-rel="back" onclick="addField('contact')" data-role="none">Contact</a></li>
+                    <li><a data-rel="back" onclick="addField('contact')" data-role="none">Contact</a></li>
                     <li><a data-rel="back" onclick="addField('social')" data-role="none">Social</a></li>
+                    <li><a data-rel="back" onclick="addField('gaming')" data-role="none">Gaming</a></li>
                 </ul>
             </div>
 
             <div data-role="popup" id="edit_user_contact" data-overlay-theme="b" data-theme="b">
                 <ul data-role="listview" data-inset="true" style="min-width:210px;">
                     <li data-role="list-divider">Contact</li>
-                    <li><input type="text" alt="Private number" id="privateNumber" /></li>
-                    <li><input type="text" alt="Work number" id="workNumber" /></li>
-                    <li><input type="text" alt="Private mail" id="privateMail" /></li>
-                    <li><input type="text" alt="Work mail" id="workMail" /></li>
+                    <li><img src="images/buttons/privateNumber.png" /><input type="text" alt="Private number" id="privateNumber" /></li>
+                    <li><img src="images/buttons/privateNumber.png" /><input type="text" alt="Work number" id="workNumber" /></li>
+                    <li><img src="images/buttons/privateNumber.png" /><input type="text" alt="Private mail" id="privateMail" /></li>
+                    <li><img src="images/buttons/privateNumber.png" /><input type="text" alt="Work mail" id="workMail" /></li>
                     <li><a data-rel="back" class="ui-btn" onclick="saveProfile()">Save</a></li>
                 </ul>
             </div>
 
             <div data-role="popup" id="edit_user_social" data-overlay-theme="b" data-theme="b">
                 <ul data-role="listview" data-inset="true" style="min-width:210px;">
-                    <li data-role="list-divider">Contact</li>
-                    <li><input type="text" alt="Facebook" id="facebook" /></li>
-                    <li><input type="text" alt="Twitter" id="twitter" /></li>
+                    <li data-role="list-divider">Social</li>
+                    <li><img src="images/buttons/facebook.png" /><input type="text" alt="Facebook" id="facebook" /></li>
+                    <li><img src="images/buttons/twitter.png" /><input type="text" alt="Twitter" id="twitter" /></li>
+                    <li><a data-rel="back" class="ui-btn" onclick="saveProfile()">Save</a></li>
+                </ul>
+            </div>
+
+            <div data-role="popup" id="edit_user_gaming" data-overlay-theme="b" data-theme="b">
+                <ul data-role="listview" data-inset="true" style="min-width:210px;">
+                    <li data-role="list-divider">Gaming</li>
+                    <li><img src="images/buttons/playstation.png" /><input type="text" alt="Playstation" id="playstation" /></li>
+                    <li><img src="images/buttons/xbox.png" /><input type="text" alt="Xbox" id="xbox" /></li>
                     <li><a data-rel="back" class="ui-btn" onclick="saveProfile()">Save</a></li>
                 </ul>
             </div>
@@ -198,12 +208,22 @@
         $(document).ready(function () {
             profile = JSON.parse(window.localStorage.getItem('profile'));
 
-            if (profile.profileID != 0) {
-                setProfileData();
-            }
-
+            setInputFields()
             getFriends();
+            searchFriends();
+        });
 
+        function feedback() {
+            alert("You wish");
+        }
+
+        function logout() {
+            profile = null;
+            friends = [];
+            window.location.href = "./index.html#login";
+        }
+
+        function setInputFields(){
             $("input:text, input:password").each(function () {
                 $(this).val($(this).attr("alt"));
             });
@@ -222,38 +242,31 @@
                 }
             });
 
-            searchFriends();
-        });
-
-        function feedback() {
-            alert("You wish");
+            if (profile.profileID != 0) {
+                setProfileData();
+            }
         }
 
-        function logout() {
-            profile = null;
-            friends = [];
-            window.location.href = "./index.html#login";
-        }
-
-        var categories = [["privateNumber", "contact"], ["workNumber", "contact"], ["privateMail", "contact"], ["workMail", "contact"], ["facebook", "social"], ["twitter", "social"]];
+        var categories = [["privateNumber", "contact"], ["workNumber", "contact"], ["privateMail", "contact"], ["workMail", "contact"], ["facebook", "social"], ["twitter", "social"], ["playstation", "gaming"], ["xbox", "gaming"]];
         var contact = false;
         var social = false;
-        var usercontact = false;
-        var usersocial = false;
+        var gaming = false;
         function setProfileData() {
             contact = false;
             social = false;
+            gaming = false;
             //home
             $('.user_name').text(profile.name);
 
             //edit
             //invullen van waarden voor te bewerken
+            
             for (var property in profile) {
                 if (profile[property] != null) {
-                    $("#" + property).attr("alt", profile[property]);
+                    $("#" + property).val(profile[property]);
                 }
             }
-
+            
             //opvullen lijst van info
             $("#show_user_container").empty();
             $("#edit_user_container").empty();
@@ -265,7 +278,6 @@
                                 $("#show_user_container").append('<div class="section"><p class="left"><img src="images/buttons/' + categories[i][1] + '.png" /></p><ul class="left" id="show_user_' + categories[i][1] + '_container"></ul><div class="clear-fix"></div></div>');
                                 $("#edit_user_container").append('<div class="section"><p class="left"><img src="images/buttons/' + categories[i][1] + '.png" /><br /><a href="#edit_user_' + categories[i][1] + '" data-rel="popup" data-role="none" data-transition="none" data-position-to="window"><img src="images/add.png" /></a></p><ul class="left" id="edit_user_' + categories[i][1] + '_container"></ul><div class="clear-fix"></div></div>');
                                 window[categories[i][1]] = true;
-                                window["user" + categories[i][1]] = true;
                             }
                             $('#show_user_' + categories[i][1] + '_container').append('<li><img src="images/buttons/' + property + '.png" class="left"/><span class="left">' + profile[property] + '</span></li>');
                             $('#edit_user_' + categories[i][1] + '_container').append('<li onclick="deleteProperty(' + i + ')"><img src="images/buttons/' + property + '.png" class="left"/><span class="left">' + profile[property] + '</span></li>');
@@ -276,11 +288,8 @@
         }
 
         function addField(section) {
-            console.log(window["user" + section]);
-
-            if (!window["user" + section]) {
+            if ($("#edit_user_" + section + '_container').length == 0) {
                 $("#edit_user_container").append('<div class="section"><p class="left"><img src="images/buttons/' + section + '.png" /><br /><a href="#edit_user_' + section + '" data-rel="popup" data-role="none" data-transition="none" data-position-to="window"><img src="images/add.png" /></p><ul class="left" id="edit_user_' + section + '_container"></ul><div class="clear-fix"></div></div>');
-                window["user" + section] = true;
             }
         }
 
@@ -296,7 +305,7 @@
                 success: function (data) {
                     profile = data;
                     window.localStorage.setItem('profile', JSON.stringify(data));
-                    setProfileData();
+                    setInputFields();
                 },
                 error: function (e) {
                     alert("Something went wrong.");
