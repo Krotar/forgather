@@ -97,18 +97,21 @@ function inviteFriend() {
     });
 }
 
-
 function deleteFriend() {
+    console.log(profile);
+    console.log(friend);
     $.ajax({
-        url: url + 'api/friend/delete?userID=' + profile.userID + '&friendID=' + friend.userID,
+        url: url + 'api/friend/remove?userID=' + profile.userID + '&friendID=' + friend.userID,
         type: 'POST',
         async: false,
         contentType: 'application/json',
         data: null,
         success: function (e) {
+            window.location.href = "#show_user";
             getFriends();
         },
         error: function (e) {
+            console.log(e);
             alert("Something went wrong.");
         }
     });
