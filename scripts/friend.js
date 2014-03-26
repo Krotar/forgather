@@ -1,4 +1,5 @@
 ﻿function getFriends() {
+    var friendInvite = false;
     $.ajax({
         datatype: 'json',
         url: url + "api/friend/getfriends?userID=" + profile.userID,
@@ -11,10 +12,18 @@
                     if (value.friend == "Accepted") {
                         $(".friends").append('<li class="user friend' + value.userID + '" ><a href="#show_friend" data-rel="close" data-transition="none" onclick="showFriend(' + value.userID + ')"><img src="images/profiles/nick.png"/><span>' + value.name + '</span><div class="clear-fix"></div></a></li>');
                     } else {
+                        friendInvite = true;
                         $(".friends").append('<li class="user friend' + value.userID + '"><a href="#show_friend" data-rel="close" data-transition="none" onclick="showFriend(' + value.userID + ')"><img src="images/profiles/nick.png"/><span>' + value.name + '</span><span class="request"><img src="images/accept.png" onclick="acceptFriend(' + value.userID + ')"/><img src="images/delete.png"  onclick="declineFriend(' + value.userID + ')"/></span><div class="clear-fix"></div></a></li>');
                     }
                 }
             });
+
+            if (friendInvite) {
+                $('.friends').attr("src", "images/friendsNew.png");
+            } else {
+                $('.friends').attr("src", "images/friends.png");
+
+            }
         },
         error: function (e) {
             alert("Could not fetch friends.");

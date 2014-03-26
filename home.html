@@ -12,20 +12,20 @@
     <script src="./scripts/jquery.mobile-1.4.2.min.js"></script>
 </head>
 
+
 <body class="ui-mobile-viewport ui-overlay-b">
+    <div data-role="popup" id="menu" data-theme="c" style="top:30px;">
+        <ul data-role="listview" data-inset="false" data-position-to="window" style="min-width:210px;">
+            <li data-icon="false"><a href="http://student.howest.be/nicola.nauwynck/">Website</a></li>
+            <li data-icon="false"><a href="#" onclick="logout()">Logout</a></li>
+        </ul>
+    </div>
+
     <div data-role="page" id="show_user" data-theme="b">
         <div data-role="header" class="header">
-            <div class="left"><a href="#invite_friend" data-transition="none"><img src="images/share.png" /></a><a href="#" onclick="feedback()"><img src="images/scan.png" /></a></div>
-            <div class="right"><a href="#show_user_panel" data-transition="none"><img src="images/friends.png" class="friends" /></a><a href="#show_user_menu" data-rel="popup" data-transition="fade"><img src="images/menu.png" /></a></div>
+            <div class="left"><a href="#invite_friend" data-transition="none"><img src="images/share.png" /></a></div>
+            <div class="right"><a href="#show_user_panel" data-transition="none"><img src="images/friends.png" class="friends" /></a><a href="#menu" data-rel="popup" data-transition="fade"><img src="images/menu.png" /></a></div>
             <div class="center"><a href="#show_user" data-transition="none"><img src="images/logo.png" class="logo" /></a></div>
-
-            <div data-role="popup" id="show_user_menu" data-theme="c" style="top:30px;">
-                <ul data-role="listview" data-inset="false" data-position-to="window" style="min-width:210px;">
-                    <li data-icon="false"><a href="mailto:nicolanauwynck@hotmail.com" style="border-top:0px">Feedback</a></li>
-                    <li data-icon="false"><a href="http://student.howest.be/nicola.nauwynck/">Website</a></li>
-                    <li data-icon="false"><a href="#" onclick="logout()">Logout</a></li>
-                </ul>
-            </div>
         </div>
 
         <div data-role="content" class="ui-content home" role="main">
@@ -58,7 +58,7 @@
     <div data-role="page" id="edit_user" data-theme="b">
         <div data-role="header" class="header">
             <div class="left"><a href="#invite_friend" data-transition="none"><img src="images/share.png" /></a></div>
-            <div class="right"><a href="#edit_user_panel" data-transition="none"><img src="images/friends.png" class="friends" /></a></div>
+            <div class="right"><a href="#edit_user_panel" data-transition="none"><img src="images/friends.png" class="friends" /></a><a href="#menu" data-rel="popup" data-transition="fade"><img src="images/menu.png" /></a></div>
             <div class="center"><a href="#show_user" data-transition="none"><img src="images/logo.png" class="logo" /></a></div>
         </div>
 
@@ -138,7 +138,7 @@
     <div data-role="page" id="invite_friend" data-theme="b">
         <div data-role="header" class="header">
             <div class="left"><a href="#invite_friend" data-transition="none"><img src="images/share.png" /></a></div>
-            <div class="right"><a href="#invite_friend_panel" data-transition="none"><img src="images/friends.png" class="friends" /></a></div>
+            <div class="right"><a href="#invite_friend_panel" data-transition="none"><img src="images/friends.png" class="friends" /></a><a href="#menu" data-rel="popup" data-transition="fade"><img src="images/menu.png" /></a></div>
             <div class="center"><a href="#show_user" data-transition="none"><img src="images/logo.png" class="logo" /></a></div>
         </div>
 
@@ -171,7 +171,7 @@
     <div data-role="page" id="show_friend" data-theme="b">
         <div data-role="header" class="header">
             <div class="left"><a href="#invite_friend" data-transition="none"><img src="images/share.png" /></a></div>
-            <div class="right"><a href="#show_friend_panel" data-transition="none"><img src="images/friends.png" class="friends" /></a></div>
+            <div class="right"><a href="#show_friend_panel" data-transition="none"><img src="images/friends.png" class="friends" /></a><a href="#menu" data-rel="popup" data-transition="fade"><img src="images/menu.png" /></a></div>
             <div class="center"><a href="#show_user" data-transition="none"><img src="images/logo.png" class="logo" /></a></div>
         </div>
 
@@ -213,6 +213,10 @@
     <script>
         var profile;
         var friends;
+
+        $(function () {
+            $("#menu").enhanceWithin().popup();
+        });
 
         $(document).ready(function () {
             profile = JSON.parse(window.localStorage.getItem('profile'));
