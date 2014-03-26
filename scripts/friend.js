@@ -44,6 +44,7 @@ function showFriend(userID) {
     if (friend.friend == "Accepted") {
         contact = false;
         social = false;
+        gaming = false;
         $('.friend_name').text(friend.name);
         $('#show_friend_container').fadeIn();
 
