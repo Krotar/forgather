@@ -1,4 +1,5 @@
 ﻿function getFriends() {
+    var friendInvite = false;
     $.ajax({
         datatype: 'json',
         url: url + "api/friend/getfriends?userID=" + profile.userID,
@@ -11,10 +12,18 @@
                     if (value.friend == "Accepted") {
                         $(".friends").append('<li class="user friend' + value.userID + '" ><a href="#show_friend" data-rel="close" data-transition="none" onclick="showFriend(' + value.userID + ')"><img src="images/profiles/nick.png"/><span>' + value.name + '</span><div class="clear-fix"></div></a></li>');
                     } else {
+                        friendInvite = true;
                         $(".friends").append('<li class="user friend' + value.userID + '"><a href="#show_friend" data-rel="close" data-transition="none" onclick="showFriend(' + value.userID + ')"><img src="images/profiles/nick.png"/><span>' + value.name + '</span><span class="request"><img src="images/accept.png" onclick="acceptFriend(' + value.userID + ')"/><img src="images/delete.png"  onclick="declineFriend(' + value.userID + ')"/></span><div class="clear-fix"></div></a></li>');
                     }
                 }
             });
+
+            if (friendInvite) {
+                $('.friends').attr("src", "images/friendsNew.png");
+            } else {
+                $('.friends').attr("src", "images/friends.png");
+
+            }
         },
         error: function (e) {
             alert("Could not fetch friends.");
@@ -42,7 +51,8 @@ function showFriend(userID) {
     });
 
     if (friend.friend == "Accepted") {
-        contact = false;
+        number = false;
+        mail = false;
         social = false;
         gaming = false;
         $('.friend_name').text(friend.name);
@@ -87,18 +97,21 @@ function inviteFriend() {
     });
 }
 
-
 function deleteFriend() {
+    console.log(profile);
+    console.log(friend);
     $.ajax({
-        url: url + 'api/friend/delete?userID=' + profile.userID + '&friendID=' + friend.userID,
+        url: url + 'api/friend/remove?userID=' + profile.userID + '&friendID=' + friend.userID,
         type: 'POST',
         async: false,
         contentType: 'application/json',
         data: null,
         success: function (e) {
+            window.location.href = "#show_user";
             getFriends();
         },
         error: function (e) {
+            console.log(e);
             alert("Something went wrong.");
         }
     });

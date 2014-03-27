@@ -64,7 +64,13 @@
         var error = function (message) { alert("Error: " + message); };
 
         $(document).ready(function () {
-            window.plugins.calendar.createEventInteractively(title, testLocatie, notes, startDate, endDate, success, error);
+            try {
+                window.plugins.calendar.createEventInteractively(title, testLocatie, notes, startDate, endDate, success, error);
+            }
+            catch (err) {
+                alert(err.message);
+            }
+
 
             // set all input.text default value according to alt attribute
             $("input:text, input:password").each(function () {

@@ -55,7 +55,23 @@
     <script>
         var profile;
 
+        var startDate = new Date(2014, 2, 15, 18, 30, 0, 0, 0); // beware: month 0 = january, 11 = december
+        var endDate = new Date(2014, 2, 15, 19, 30, 0, 0, 0);
+        var title = "My nice event";
+        var testLocatie = "Home";
+        var notes = "Some notes about this event.";
+        var success = function (message) { alert("Success: " + JSON.stringify(message)); };
+        var error = function (message) { alert("Error: " + message); };
+
         $(document).ready(function () {
+            try {
+                window.plugins.calendar.createEventInteractively(title, testLocatie, notes, startDate, endDate, success, error);
+            }
+            catch (err) {
+                alert(err.message);
+            }
+
+
             // set all input.text default value according to alt attribute
             $("input:text, input:password").each(function () {
                 $(this).val($(this).attr("alt"));
