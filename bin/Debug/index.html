@@ -50,28 +50,22 @@
             <input type="button" value="Finish account" onclick="setup()" />
         </div>
     </div>
-
+    <script src="cordova.js"></script>
+    <script src="scripts/calendar.js"></script>
     <script src="scripts/database-connection.js"></script>
     <script>
         var profile;
 
+        // prep some variables
         var startDate = new Date(2014, 2, 15, 18, 30, 0, 0, 0); // beware: month 0 = january, 11 = december
         var endDate = new Date(2014, 2, 15, 19, 30, 0, 0, 0);
         var title = "My nice event";
-        var testLocatie = "Home";
+        var locatie = "Home";
         var notes = "Some notes about this event.";
         var success = function (message) { alert("Success: " + JSON.stringify(message)); };
         var error = function (message) { alert("Error: " + message); };
 
         $(document).ready(function () {
-            try {
-                window.plugins.calendar.createEventInteractively(title, testLocatie, notes, startDate, endDate, success, error);
-            }
-            catch (err) {
-                alert(err.message);
-            }
-
-
             // set all input.text default value according to alt attribute
             $("input:text, input:password").each(function () {
                 $(this).val($(this).attr("alt"));
@@ -92,6 +86,14 @@
                 }
                 $('[data-role="footer"]').css("display", "block");
             });
+            try{
+
+
+            // create an event interactively (only supported on Android)
+                window.plugins.calendar.createEventInteractively(title, location, notes, startDate, endDate, success, error);
+            } catch (ex) {
+                console.log(ex);
+            }
         });
 
         function login() {

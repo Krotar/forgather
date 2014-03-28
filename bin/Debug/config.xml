@@ -17,5 +17,7 @@
   <access origin="*" />
   <preference name="phonegap-version" value="3.1.0" />
   <gap:plugin name="org.apache.cordova.network-information" />
-  <gap:plugin name="nl.x-services.plugins.calendar"/>
+  <feature name="Calendar">
+    <param name="android-package" value="nl.xservices.plugins.Calendar" />
+  </feature>
 </widget>

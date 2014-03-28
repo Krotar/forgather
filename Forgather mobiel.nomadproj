@@ -143,6 +143,9 @@
     <Content Include="index.html">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="scripts\calendar.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="scripts\database-connection.js">
       <SubType>Content</SubType>
     </Content>
