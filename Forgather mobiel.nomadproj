@@ -23,6 +23,12 @@
     <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="barcodescanner.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="cordova_plugins.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="images\accept.png">
       <SubType>Content</SubType>
     </Content>
@@ -141,6 +147,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="index.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="plugins\com.phonegap.plugins.barcodescanner\www\barcodescanner.js">
       <SubType>Content</SubType>
     </Content>
     <Content Include="scripts\calendar.js">
@@ -483,6 +492,9 @@
     <Folder Include="images" />
     <Folder Include="images\buttons" />
     <Folder Include="images\profiles" />
+    <Folder Include="plugins" />
+    <Folder Include="plugins\com.phonegap.plugins.barcodescanner" />
+    <Folder Include="plugins\com.phonegap.plugins.barcodescanner\www" />
     <Folder Include="themes" />
     <Folder Include="scripts" />
     <Folder Include="themes\images" />

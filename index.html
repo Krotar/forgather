@@ -12,7 +12,6 @@
     <script src="./scripts/jquery.mobile-1.4.2.min.js"></script>
 </head>
 
-
 <body class="ui-mobile-viewport ui-overlay-c">
 
     <div data-role="page" id="login" data-theme="a">
@@ -21,9 +20,6 @@
             <input id="loginEmail" type="text" alt="Email" />
             <input id="loginPassword" type="password" alt="Password" />
             <input type="button" value="Log In" onclick="login()" />
-        </div>
-
-        <div data-role="footer" class="ui-content" role="main">
             <a href="#register" data-role="none" data-transition="fade">Sign up for Forgather</a>
         </div>
     </div>
@@ -35,9 +31,6 @@
             <input id="registerPassword" type="password" alt="Password" />
             <input id="registerPasswordTwo" type="password" alt="Password" />
             <input type="button" value="Create account" onclick="register()" />
-        </div>
-
-        <div data-role="footer" class="ui-content" role="main">
             <a href="#login" data-role="none" data-transition="fade" class="info">Already got a Forgather account?</a>
         </div>
     </div>
@@ -50,20 +43,10 @@
             <input type="button" value="Finish account" onclick="setup()" />
         </div>
     </div>
-    <script src="cordova.js"></script>
-    <script src="scripts/calendar.js"></script>
+
     <script src="scripts/database-connection.js"></script>
     <script>
         var profile;
-
-        // prep some variables
-        var startDate = new Date(2014, 2, 15, 18, 30, 0, 0, 0); // beware: month 0 = january, 11 = december
-        var endDate = new Date(2014, 2, 15, 19, 30, 0, 0, 0);
-        var title = "My nice event";
-        var locatie = "Home";
-        var notes = "Some notes about this event.";
-        var success = function (message) { alert("Success: " + JSON.stringify(message)); };
-        var error = function (message) { alert("Error: " + message); };
 
         $(document).ready(function () {
             // set all input.text default value according to alt attribute
@@ -76,7 +59,6 @@
                 if ($(this).val() == $(this).attr("alt")) {
                     $(this).val("");
                 }
-                $('[data-role="footer"]').css("display", "none");
             });
 
             // if field is empty afterward, add text again
@@ -84,14 +66,7 @@
                 if ($(this).val() == "") {
                     $(this).val($(this).attr("alt"));
                 }
-                $('[data-role="footer"]').css("display", "block");
             });
-            try {
-                // create an event interactively (only supported on Android)
-                window.plugins.calendar.createEventInteractively(title, location, notes, startDate, endDate, success, error);
-            } catch (ex) {
-                console.log(ex);
-            }
         });
 
         function login() {
