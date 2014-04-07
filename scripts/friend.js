@@ -1,4 +1,5 @@
 ﻿function getFriends() {
+    console.log("test");
     var friendInvite = false;
     $.ajax({
         datatype: 'json',

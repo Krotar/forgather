@@ -16,7 +16,8 @@
 <body class="ui-mobile-viewport ui-overlay-b">
     <div data-role="popup" id="menu" data-theme="c" style="top:30px;">
         <ul data-role="listview" data-inset="false" style="min-width:210px;">
-            <li data-icon="false"><a href="http://student.howest.be/nicola.nauwynck/">Website</a></li>
+            <li data-icon="false"><a href="http://www.forgatherapp.com/">Website</a></li>
+            <li data-icon="false"><a href="#" onclick="refresh()">Refresh</a></li>
             <li data-icon="false"><a href="#" onclick="logout()">Logout</a></li>
         </ul>
     </div>
@@ -53,6 +54,14 @@
             <div id="show_user_container">
 
             </div>
+            <a href="#show_user_property" data-rel="popup" data-transition="fade" data-position-to="window" style="display:none;" id="show_user_property_click"></a>
+            <div data-role="popup" id="show_user_property" data-overlay-theme="b" data-theme="b">
+                <ul data-role="listview" data-inset="true" style="min-width:210px;">
+                    <li data-role="list-divider" id="show_user_property_name">Field_name</li>
+                    <li><img src="images/buttons/privateNumber.png" id="show_user_property_image" /><span id="show_user_property_value"></span></li>
+                </ul>
+            </div>
+
         </div>
         <div data-role="panel" id="show_user_panel" data-position="right" data-display="reveal" data-theme="b" class="ui-panel ui-panel-position-right ui-panel-display-reveal ui-body-b ui-panel-animate ui-panel-open">
             <div class="ui-panel-inner">
@@ -120,6 +129,12 @@
                     <li data-role="list-divider">Social</li>
                     <li><img src="images/buttons/facebook.png" /><input type="text" alt="Facebook" id="facebook" /></li>
                     <li><img src="images/buttons/twitter.png" /><input type="text" alt="Twitter" id="twitter" /></li>
+                    <li><img src="images/buttons/linkedin.png" /><input type="text" alt="Linkedin" id="linkedin" /></li>
+                    <li><img src="images/buttons/instagram.png" /><input type="text" alt="Instagram" id="instagram" /></li>
+                    <li><img src="images/buttons/skype.png" /><input type="text" alt="Skype" id="skype" /></li>
+                    <li><img src="images/buttons/googlePlus.png" /><input type="text" alt="Google +" id="googlePlus" /></li>
+                    <li><img src="images/buttons/snapchat.png" /><input type="text" alt="Snapchat" id="snapchat" /></li>
+                    <li><img src="images/buttons/pinterest.png" /><input type="text" alt="Pinterest" id="pinterest" /></li>
                     <li><a data-rel="back" class="ui-btn" onclick="saveProfile()">Save</a></li>
                 </ul>
             </div>
@@ -253,8 +268,6 @@
         </div>
     </div>
 
-
-    <script src="barcodescanner.js"></script>
     <script src="scripts/database-connection.js"></script>
     <script>
         var profile;
@@ -268,33 +281,26 @@
             setInputFields()
             getFriends();
             searchFriends();
-        });
 
-        function scan() {
-            window.cordova.plugins.barcodeScanner.scan(
-                function (result) {
-                    alert("We got a barcode\n" +
-                          "Result: " + result.text + "\n" +
-                          "Format: " + result.format + "\n" +
-                          "Cancelled: " + result.cancelled);
-                },
-                function (error) {
-                    alert("Scanning failed: " + error);
-                }
-            );
-        }
+            navigator.camera.getPicture(cameraSuccess, cameraError, [cameraOptions]);
+        });
 
         function encode() {
             cordova.plugins.barcodeScanner.encode(BarcodeScanner.Encode.TEXT_TYPE, "http://www.nytimes.com", function (success) {
-                    alert("encode success: " + success);
-                }, function (fail) {
-                    alert("encoding failed: " + fail);
-                }
+                alert("encode success: " + success);
+            }, function (fail) {
+                alert("encoding failed: " + fail);
+            }
             );
         }
 
         function feedback() {
             alert("You wish");
+        }
+
+        function refresh() {
+            console.log("refreshing");
+            getFriends();
         }
 
         function logout() {
@@ -327,7 +333,7 @@
             }
         }
 
-        var categories = [["privateNumber", "number"], ["workNumber", "number"], ["privateMail", "mail"], ["workMail", "mail"], ["facebook", "social"], ["twitter", "social"], ["playstation", "gaming"], ["xbox", "gaming"]];
+        var categories = [["privateNumber", "number"], ["workNumber", "number"], ["privateMail", "mail"], ["workMail", "mail"], ["facebook", "social"], ["twitter", "social"], ["linkedin", "social"], ["instagram", "social"], ["skype", "social"], ["googlePlus", "social"], ["snapchat", "social"], ["pinterest", "social"], ["playstation", "gaming"], ["xbox", "gaming"]];
         var number = false;
         var mail = false;
         var social = false;
@@ -361,12 +367,26 @@
                                 $("#edit_user_container").append('<div class="section"><p class="left"><img src="images/buttons/' + categories[i][1] + '.png" /><br /><a href="#edit_user_' + categories[i][1] + '" data-rel="popup" data-role="none" data-transition="none" data-position-to="window"><img src="images/add.png" /></a></p><ul id="edit_user_' + categories[i][1] + '_container"></ul><div class="clear-fix"></div></div>');
                                 window[categories[i][1]] = true;
                             }
-                            $('#show_user_' + categories[i][1] + '_container').append('<li><img src="images/buttons/' + property + '.png" class="left"/><span class="left">' + profile[property] + '</span></li>');
+                            if (categories[i][1] != "social") {
+                                $('#show_user_' + categories[i][1] + '_container').append('<li><img src="images/buttons/' + property + '.png" class="left"/><span class="left">' + profile[property] + '</span></li>');
+                            } else {
+                                $('#show_user_' + categories[i][1] + '_container').append('<li class="left social" onclick="showProperty(' + property + ')"><img src="images/buttons/' + property + '.png"/></li>');
+                            }
+
                             $('#edit_user_' + categories[i][1] + '_container').append('<li><img src="images/buttons/' + property + '.png" class="left"/><span class="left">' + profile[property] + '</span><img src="images/delete.png" class="right" onclick="deleteProperty(' + i + ')"/></li>');
                         }
                     }
                 }
             }
+        }
+
+        function showProperty(property) {
+            property = property.id;
+            console.log(property);
+            $("#show_user_property_name").text(property);
+            $("#show_user_property_image").attr("src", "images/buttons/" + property + ".png");
+            $("#show_user_property_value").text(property);
+            $("#show_user_property_click").click();
         }
 
         function addField(section) {

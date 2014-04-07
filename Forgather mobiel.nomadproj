@@ -59,6 +59,24 @@
     <Content Include="images\buttons\social.png">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="images\buttons\linkedin.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="images\buttons\skype.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="images\buttons\snapchat.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="images\buttons\googlePlus.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="images\buttons\pinterest.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="images\buttons\instagram.png">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="images\buttons\twitter.png">
       <SubType>Content</SubType>
     </Content>

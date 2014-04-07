@@ -4,6 +4,7 @@
   <description>
     Development version Forgather
   </description>
+  <preference name="fullscreen" value="true"/>
   <icon src="/icons/android/icon-hdpi.png" gap:density="hdpi" gap:platform="android" />
   <icon src="/icons/android/icon-ldpi.png" gap:density="ldpi" gap:platform="android" />
   <icon src="/icons/android/icon-mdpi.png" gap:density="mdpi" gap:platform="android" />

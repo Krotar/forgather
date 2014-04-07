@@ -47,7 +47,7 @@
     <script src="scripts/database-connection.js"></script>
     <script>
         var profile;
-
+        var version = "1.0";
         $(document).ready(function () {
             // set all input.text default value according to alt attribute
             $("input:text, input:password").each(function () {
@@ -67,7 +67,27 @@
                     $(this).val($(this).attr("alt"));
                 }
             });
+
+            checkVersion();
         });
+
+        function checkVersion() {
+            $.ajax({
+                datatype: 'json',
+                url: url + "api/user/getversion",
+                data: null,
+                success: function (data) {
+                    console.log(data);
+                    if (data.version != version) {
+                        alert("A new version is online at www.forgatherapp.com");
+                        app.exitApp();
+                    }
+                },
+                error: function (e) {
+                    alert("You do not have an active internet connection.");
+                }
+            });
+        }
 
         function login() {
             var email = $("#loginEmail").val();
