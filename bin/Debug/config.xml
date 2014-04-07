@@ -18,7 +18,7 @@
   <access origin="*" />
   <preference name="phonegap-version" value="3.1.0" />
   <gap:plugin name="org.apache.cordova.network-information" />
-  <gap:plugin name="com.phonegap.plugins.barcodescanner" />
+  <gap:plugin name="org.apache.cordova.camera"/>
 
   <feature name="Calendar">
     <param name="android-package" value="nl.xservices.plugins.Calendar" />

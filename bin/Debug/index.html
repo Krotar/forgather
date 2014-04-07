@@ -80,7 +80,7 @@
                     console.log(data);
                     if (data.version != version) {
                         alert("A new version is online at www.forgatherapp.com");
-                        app.exitApp();
+                        navigator.app.exitApp();
                     }
                 },
                 error: function (e) {
